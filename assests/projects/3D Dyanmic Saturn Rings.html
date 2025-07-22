@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Saturn Ring Particles - Light/Dark Mode</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    #themeToggle {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 10;
+      padding: 8px 12px;
+      background: #eee;
+      color: #222;
+      border: none;
+      border-radius: 4px;
+      font-family: sans-serif;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    body.dark #themeToggle {
+      background: #333;
+      color: #eee;
+    }
+  </style>
+</head>
+<body class="light">
+
+  <button id="themeToggle">Switch to Dark</button>
+  <h1>
+    3D Dynamic Saturn Rings with Natural Rotating Axis (theme switching effect)
+  </h1>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <script>
+    class SaturnRing {
+      constructor(options = {}) {
+        this.particleCount = options.particleCount || 5000;
+        this.innerRadius = options.innerRadius || 3.5;
+        this.outerRadius = options.outerRadius || 6;
+        this.innerThickness = options.innerThickness || 8;
+        this.color = options.color || 0xffcc99;
+        this.zJitter = options.zJitter || 0.05;
+        this.rotationSpeed = options.rotationSpeed || 0.002;
+        this.fallingSpeed = options.fallingSpeed || 0.005;
+
+        this.positions = new Float32Array(this.particleCount * 3);
+        this.angles = new Float32Array(this.particleCount);
+        this.radii = new Float32Array(this.particleCount);
+        this.speeds = new Float32Array(this.particleCount);
+
+        this.geometry = new THREE.BufferGeometry();
+        this.material = new THREE.PointsMaterial({
+          color: this.color,
+          size: 0.05
+        });
+
+        this.generateRing();
+        this.geometry.setAttribute('position', new THREE.BufferAttribute(this.positions, 3).setUsage(THREE.DynamicDrawUsage));
+        this.points = new THREE.Points(this.geometry, this.material);
+        this.points.rotation.x = Math.PI / 2;
+      }
+
+      generateRing() {
+        for (let i = 0; i < this.particleCount; i++) {
+          const radius = this.innerRadius + Math.random() * (this.outerRadius - this.innerRadius + this.innerThickness);
+          const angle = Math.random() * Math.PI * 2;
+          this.radii[i] = radius;
+          this.angles[i] = angle;
+          this.speeds[i] = 0.002 + Math.random() * 0.008;
+          this.positions[i * 3] = radius * Math.cos(angle);
+          this.positions[i * 3 + 1] = radius * Math.sin(angle);
+          this.positions[i * 3 + 2] = (Math.random() - 0.5) * this.zJitter;
+        }
+      }
+
+      update() {
+        const posAttr = this.geometry.getAttribute('position');
+        this.points.position.x += Math.sin(Date.now() * 0.001) * 0.01;
+        this.points.rotation.x += Math.sin(Date.now() * 0.0005) * 0.001;
+        this.points.rotation.y += Math.cos(Date.now() * 0.0005) * 0.001;
+        this.points.rotation.z += Math.sin(Date.now() * 0.0003) * 0.001;
+
+        for (let i = 0; i < this.particleCount; i++) {
+          this.angles[i] += this.speeds[i];
+          const r = this.radii[i];
+          const a = this.angles[i];
+          posAttr.array[i * 3] = r * Math.cos(a);
+          posAttr.array[i * 3 + 1] = r * Math.sin(a) - this.fallingSpeed;
+          posAttr.array[i * 3 + 2] = Math.sin(a * 3 + i) * this.zJitter;
+        }
+
+        posAttr.needsUpdate = true;
+      }
+
+      getMesh() {
+        return this.points;
+      }
+
+      setColor(hex) {
+        this.material.color.set(hex);
+      }
+    }
+
+    // === Scene Setup ===
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(0, 5, 10);
+    camera.lookAt(0, 0, 0);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // === Ring Setup ===
+    const ring = new SaturnRing({
+      particleCount: 3000,
+      innerRadius: 3.5,
+      outerRadius: 6,
+      innerThickness: 1.5,
+      color: 0xffcc99,
+      zJitter: 0.05,
+      rotationSpeed: 0.002,
+      fallingSpeed: 0.005
+    });
+    scene.add(ring.getMesh());
+
+    // === Animation ===
+    function animate() {
+      requestAnimationFrame(animate);
+      ring.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // === Resize ===
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // === Theme Toggle ===
+    const toggleBtn = document.getElementById('themeToggle');
+    const body = document.body;
+    let dark = false;
+
+    toggleBtn.addEventListener('click', () => {
+      dark = !dark;
+      body.className = dark ? 'dark' : 'light';
+      toggleBtn.textContent = dark ? 'Switch to Light' : 'Switch to Dark';
+
+      // Change background and particle color
+      renderer.setClearColor(dark ? 0x181a23 : 0xffffff, 1);
+      ring.setColor(dark ? 0xffcc99 : 0x222266);
+    });
+
+    // Initial clear color
+    renderer.setClearColor(0xffffff, 1);
+  </script>
+</body>
+</html>

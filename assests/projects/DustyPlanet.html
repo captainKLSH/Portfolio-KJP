@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Three.js Volumetric Planet Shader</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: #000;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+    body {
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+    canvas {
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      width: 100vw !important;
+      height: 100vh !important;
+      min-width: 100vw;
+      min-height: 100vh;
+      z-index: 0;
+      display: block;
+      pointer-events: none; /* UI remains clickable */
+      background: #000;
+    }
+  </style>
+  <link rel="stylesheet" href="../css/pros.css">
+</head>
+<body>
+  
+  <script type="module">
+  import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.module.js';
+
+  // Load textures for iChannel0 and iChannel1 (noise and planet shading)
+  const loader = new THREE.TextureLoader();
+  const iChannel0 = loader.load('https://cdn.jsdelivr.net/gh/emmelleppi/shadertoy-assets@master/textures/noise.png');
+  const iChannel1 = loader.load('https://cdn.jsdelivr.net/gh/emmelleppi/shadertoy-assets@master/textures/clouds.png');
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.OrthographicCamera(-1,1,1,-1,0,1);
+  const renderer = new THREE.WebGLRenderer({antialias:true});
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setClearColor(0x000000, 1);
+  document.body.appendChild(renderer.domElement);
+
+  const uniforms = {
+    iTime: { value: 0 },
+    iResolution: { value: new THREE.Vector3(window.innerWidth, window.innerHeight, 1) },
+    iChannel0: { value: iChannel0 },
+    iChannel1: { value: iChannel1 }
+  };
+
+  const vertexShader = `
+  varying vec2 vUv;
+  void main() {
+    vUv = uv;
+    gl_Position = vec4(position, 1.0);
+  }
+  `;
+
+  const fragmentShader = `
+  uniform float iTime;
+  uniform vec3 iResolution;
+  uniform sampler2D iChannel0;
+  uniform sampler2D iChannel1;
+  varying vec2 vUv;
+
+  // rendering params
+  const float sphsize=.55;
+  const float dist=.27;
+  const float perturb=.3;
+  const float displacement=.015;
+  const float windspeed=.4;
+  const float steps=110.;
+  const float stepsize=.025;
+  const float brightness=.36;
+  const vec3 planetcolor=vec3(0.2,0.3,1.0); // <-- Change color here!
+  const float fade=.005;
+  const float glow=3.5;
+
+  // fractal params
+  const int iterations=13;
+  const float fractparam=.7;
+  const vec3 offset=vec3(1.5,2.,-1.5);
+
+  float wind(vec3 p) {
+    float d=max(0.,dist-max(0.,length(p)-sphsize)/sphsize)/dist;
+    float x=max(0.2,p.x*2.);
+    p.y*=1.+max(0.,-p.x-sphsize*.25)*1.5;
+    p-=d*normalize(p)*perturb;
+    p+=vec3(iTime*windspeed,0.,0.);
+    p=abs(fract((p+offset)*.1)-.5);
+    for (int i=0; i<iterations; i++) {
+      p=abs(p)/dot(p,p)-fractparam;
+    }
+    return length(p)*(1.+d*glow*x)+d*glow*x;
+  }
+
+  void main() {
+    vec2 uv = vUv - 0.5;
+    vec3 dir=vec3(uv,1.);
+    dir.x*=iResolution.x/iResolution.y;
+    vec3 from=vec3(0.,0.,-2.+texture(iChannel0,uv*.5+iTime).x*stepsize);
+
+    float v=0., l=-0.0001, t=iTime*windspeed*.2;
+    for (float r=10.;r<steps;r++) {
+      vec3 p=from+r*dir*stepsize;
+      float tx=texture(iChannel0,uv*.2+vec2(t,0.)).x*displacement;
+      if (length(p)-sphsize-tx>0.)
+        v+=min(50.,wind(p))*max(0.,1.-r*fade);
+      else if (l<0.)
+        l=pow(max(.53,dot(normalize(p),normalize(vec3(-1.,.5,-0.3)))),4.)
+        *(.5+texture(iChannel1,uv*vec2(2.,1.)*(1.+p.z*.5)+vec2(tx+t*.5,0.)).x*2.);
+    }
+    v/=steps; v*=brightness;
+    vec3 col=vec3(v*1.25,v*v,v*v*v)+l*planetcolor;
+    col*=1.-length(pow(abs(uv),vec2(5.)))*14.;
+    gl_FragColor = vec4(col,1.0);
+  }
+  `;
+
+  const geometry = new THREE.PlaneGeometry(2,2);
+  const material = new THREE.ShaderMaterial({
+    uniforms,
+    vertexShader,
+    fragmentShader
+  });
+  const mesh = new THREE.Mesh(geometry, material);
+  scene.add(mesh);
+
+  function animate() {
+    uniforms.iTime.value = performance.now() * 0.001;
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    uniforms.iResolution.value.set(window.innerWidth, window.innerHeight, 1);
+    renderer.render(scene, camera);
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  window.addEventListener('resize', () => {
+    uniforms.iResolution.value.set(window.innerWidth, window.innerHeight, 1);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+  </script>
+
+  <div class="container">
+    <!-- Go Back Button -->
+    <a href="./project.html" class="nav__link">&uArr; Back</a>
+    
+    <header>
+      <h1>3D Illustration of Solar Dust hitting Planet</h1>
+      <h2>GLSL Shader Example</h2>
+    </header>   
+    <section>
+      <h2>The Shader Code</h2>
+      <p>
+        The core of this demo is a GLSL fragment shader. You can inspect the code
+      </p>
+      <pre><code>// See the &lt;script id="fragShader"&gt; tag for the full shader code.</code></pre>
+    </section>
+  </div>
+  <script src="../js/pros.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+.preloader {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(0, 0, 0);
+  z-index: 999;
+  transition: opacity 0.4s;
+}
+
+.tally-svg {
+  width: 100px;
+  height: 50px;
+  display: block;
+}
+
+.tally-svg line {
+  stroke: rgb(245, 239, 234);
+  stroke-width: 4;
+  stroke-linecap: round;
+  font-size: 20%;
+  fill: none;
+  opacity: 1;
+  transition: stroke 0.3s;
+}

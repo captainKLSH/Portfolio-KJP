@@ -1,0 +1,45 @@
+.grid {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-gap: 0px;
+  position: fixed;
+  top: 0;bottom: 0;
+  z-index: 0;
+}
+body {
+  cursor: none;
+}
+
+.dot {
+  width: 3px;
+  height: 3px;
+  background: var(--black-color);
+  border-radius: 70%;
+  justify-self: start;
+  align-self: start;
+  margin: auto;
+  z-index: 0;
+}
+.circle1 {
+  height: 22px;
+  width: 22px;
+  border-radius: 19px;
+  background: var(--curback);
+  box-shadow: var(--cursha);
+  position: fixed;
+  top: 0;
+  pointer-events: none;
+  z-index: 99999999; /* so that it stays on top of all other elements */
+}
+.circle {
+  height: 22px;
+  width: 22px;
+  border-radius: 19px;
+  background-color: var(--black-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999998; /* so that it stays on top of all other elements */
+}

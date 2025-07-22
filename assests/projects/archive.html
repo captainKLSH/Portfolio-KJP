@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- REMIX ICONS -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- FONTSSTYLES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=BioRhyme:wdth,wght@100..125,200..800&family=Rock+Salt&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Handlee&display=swapfamily=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,700&display=swap"
+        rel="stylesheet">
+    <title>Kiran Jamuna Prasad</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/arch.css">
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
+
+</head>
+
+<body>
+    <!-- Full page fluid background container -->
+    <canvas id="fluid-bg"></canvas>
+    <!-- NAVBAR -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="../../index.html" class="nav__logo">
+                <img src="../images/Ki.gif" alt="KJP.">
+            </a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li>
+                        <a href="../../index.html" class="nav__link">Home</a>
+                    </li>
+                    <li>
+                        <a href="./project.html" class="nav__link">Project</a>
+                    </li>
+                    <li>
+                        <a href="./archive.html" class="nav__link">Archive</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="nav__link">Contact</a>
+                    </li>
+                    <li class="nav__item--theme">
+                        <button id="theme-toggle" aria-label="Toggle theme" class="theme-toggle">
+                            <i class="ri-moon-fill theme-icon theme-icon--moon"></i>
+                            <i class="ri-sun-fill theme-icon theme-icon--sun"></i>
+                        </button>
+                    </li>
+                </ul>
+                <!-- CLOSE button -->
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-large-line"></i>
+                </div>
+            </div>
+            <!-- Toggle button -->
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-apps-2-add-fill"></i>
+            </div>
+            <!-- Theme button for mobile, hidden on desktop -->
+            <button id="theme-toggle-mobile" aria-label="Toggle theme" class="theme-toggle-mobile">
+                <i class="ri-sun-fill theme-icon theme-icon--sun"></i>
+                <i class="ri-moon-fill theme-icon theme-icon--moon"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+        <hr>
+        <div style="text-align: center; font-family: var(--body-font4);">
+            <h2 style="color: var(--black-color); font-weight: 800; font-size: 2rem;">Artificial Intelligence & Machine Learning</h2>
+        </div>
+        <div class="hori-container">
+            <section class="hori-section">
+                <div>
+                    <div class="imgsec">
+                        <img class="hori-ig" src="../images/portfolioimg.png" alt="1">
+                    </div>
+                    <h2 class="he2sec">Portfolio Website</h2>
+                    <p class="parasec">
+                        I created this website as a hands-on project to deepen my expertise in <span
+                            style="font-weight: bolder;">HTML, CSS, JavaScript,
+                            GSAP, and three.js.</span> It became my digital playground—a place to experiment with
+                        cutting-edge web
+                        technologies and animation techniques, transforming ideas into interactive experiences.
+
+                        Drawing inspiration from a diverse range of sites, I gradually shaped the design and features
+                        into something distinctly my own. This evolution mirrors my journey as a developer, blending
+                        creativity with technical growth.
+
+                        From the very first page, visitors are greeted with a space-time inspired visual landscape,
+                        next highlighted by fluid raindrop ripple effects. These immersive touches set the stage for an
+                        engaging, interactive exploration of my work, capturing both my passion for web development and
+                        my commitment to unique digital storytelling.
+                    </p>
+                </div>
+            </section>
+            <section class="hori-section">
+                <div>
+                    <div class="imgsec">
+                        <img class="hori-ig" src="../images/portfolioimg.png" alt="1">
+                    </div>
+                    <h2 class="he2sec">Portfolio Website</h2>
+                    <p class="parasec">
+                        I created this website as a hands-on project to deepen my expertise in <span
+                            style="font-weight: bolder;">HTML, CSS, JavaScript,
+                            GSAP, and three.js.</span> It became my digital playground—a place to experiment with
+                        cutting-edge web
+                        technologies and animation techniques, transforming ideas into interactive experiences.
+
+                        Drawing inspiration from a diverse range of sites, I gradually shaped the design and features
+                        into something distinctly my own. This evolution mirrors my journey as a developer, blending
+                        creativity with technical growth.
+
+                        From the very first page, visitors are greeted with a space-time inspired visual landscape,
+                        next highlighted by fluid raindrop ripple effects. These immersive touches set the stage for an
+                        engaging, interactive exploration of my work, capturing both my passion for web development and
+                        my commitment to unique digital storytelling.
+                    </p>
+                </div>
+            </section>
+            <section class="hori-section">
+                <div>
+                    <div class="imgsec">
+                        <img class="hori-ig" src="../images/portfolioimg.png" alt="1">
+                    </div>
+                    <h2 class="he2sec">Portfolio Website</h2>
+                    <p class="parasec">
+                        I created this website as a hands-on project to deepen my expertise in <span
+                            style="font-weight: bolder;">HTML, CSS, JavaScript,
+                            GSAP, and three.js.</span> It became my digital playground—a place to experiment with
+                        cutting-edge web
+                        technologies and animation techniques, transforming ideas into interactive experiences.
+
+                        Drawing inspiration from a diverse range of sites, I gradually shaped the design and features
+                        into something distinctly my own. This evolution mirrors my journey as a developer, blending
+                        creativity with technical growth.
+
+                        From the very first page, visitors are greeted with a space-time inspired visual landscape,
+                        next highlighted by fluid raindrop ripple effects. These immersive touches set the stage for an
+                        engaging, interactive exploration of my work, capturing both my passion for web development and
+                        my commitment to unique digital storytelling.
+                    </p>
+                </div>
+            </section>
+        </div>
+        <hr>
+        <div style="text-align: center; font-family: var(--body-font4);">
+            <h2 style="color: var(--black-color); font-weight: 800; font-size: 2rem;">Application Development</h2>
+        </div>
+        <div class="hori-container">
+            <section class="hori-section">
+                <div>
+                    <div class="imgsec">
+                        <img class="hori-ig" src="../images/flutt.png" alt="1">
+                    </div>
+                    <h2 class="he2sec">Flutter-Based Seminar Attendance Management App</h2>
+                    <p class="parasec">
+                        Developed a comprehensive Flutter-based seminar attendance management app for <span
+                            style="color: rgb(196, 18, 48)">Carnegie Mellon University</span> as an employee.
+                        The app enables students to register and securely mark attendance using an event-specific 6-digit code, with real-time
+                        validation of location, date, time, and code to ensure authenticity. Attendance tracking and certificate eligibility are
+                        fully automated, streamlining processes for students and administrators. Planned future enhancements include AI-driven
+                        GPS anomaly detection to further improve the security and reliability of attendance records.
+                    </p>
+                </div>
+            </section>
+            <section class="hori-section">
+                <div>
+                    <div class="imgsec">
+                        <img class="hori-ig" src="../images/" alt="1">
+                        <h1>Coming Soon... </h1>
+                    </div>
+                    <h2 class="he2sec">Flutter-based Comic Book Reader (MangaBubble) App</h2>
+                    <p class="parasec">
+                        Developed a versatile Flutter comic book reader app that enables users to seamlessly read and manage digital comics in
+                        multiple formats, including CBZ, CBR (zip/rar), EPUB, and PDF. The app offers a rich and customizable reading experience
+                        with the following features: <br>
+                        &dash; <strong>Multi-format Support:</strong> Opens CBZ, CBR, EPUB, and PDF files directly from the user's device storage. <br>
+                        
+                        &dash; <strong>Fluid Reading Experience:</strong> Provides smooth, book-like page transitions, along with intuitive zoom, pan, and scroll
+                        gestures for easy navigation. <br>
+                        
+                        &dash; <strong>Flexible Viewing Options:</strong> Offers both grid and list views for the comic library, with card-based displays and thumbnail
+                        image previews. <br>
+                        
+                        &dash; <strong>Theming:</strong> Includes light and dark themes to suit user preferences and reading conditions. <br>
+                        &dash; <strong>User-Friendly Functions:</strong> <br>
+                        
+                        &nbsp; &nbsp; &rArr; Remembers and saves the user's reading position for each comic. <br>
+                        
+                        &nbsp; &nbsp; &rArr; Allows selection of reading direction (left-to-right or right-to-left) and page scaling preferences. <br>
+                        
+                        &nbsp; &nbsp; &rArr; Supports orientation lock for consistent landscape or portrait viewing. <br>
+                        
+                        &dash; <strong>Comics Management: </strong>Lets users organize and access their comic collection from device storage efficiently. <br>
+                        
+                        This app combines modern UI elements, customizable themes, and robust file handling to provide an enjoyable and
+                        accessible comic reading experience on any device.
+                                                
+                    </p>
+                    <a href="https://github.com/captainKLSH/MangaBubble" class="github-btn" target="_blank" rel="noopener">
+                        <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
+                            style="vertical-align: middle; margin-right: 0.5em;">
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                        </svg>
+                        GitHub
+                        </a>
+                </div>
+            </section>
+            <section class="hori-section">
+                <div>
+                    <div class="imgsec">
+                        <img class="hori-ig" src="../images/" alt="1">
+                        <h1>Coming Soon... </h1>
+                    </div>
+                    <h2 class="he2sec">Poképedia &dash; Creative Flutter App</h2>
+                    <p class="parasec">
+                    Developed an engaging Poképedia app with Flutter, featuring a Lottie-animated login, real-time PokéAPI
+                    integration for live Pokémon data, and modern, interactive UI elements like animated cards and type badges. The app
+                    delivers intuitive, detailed Pokémon information pages and employs modular Flutter code with open-source packages such
+                    as http and lottie, showcasing strong skills in Flutter development, creative UI/UX design, and API integration.                    
+                    </p>
+                    <a href="https://github.com/captainKLSH/Pokepedia" class="github-btn" target="_blank" rel="noopener">
+                    <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
+                        style="vertical-align: middle; margin-right: 0.5em;">
+                        <path
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                    </svg>
+                    GitHub
+                    </a>
+                </div>
+            </section>
+        </div>
+        <hr>        
+        <div style="text-align: center; font-family: var(--body-font4);">
+            <h2 style="color: var(--black-color); font-weight: 800; font-size: 2rem;">Web Development</h2>
+        </div>
+        <div class="hori-container">
+            <section class="hori-section">
+                <div>
+                    <div class="imgsec">
+                        <img class="hori-ig" src="../images/portfolioimg.png" alt="1">
+                    </div>
+                    <h2 class="he2sec">Portfolio Website</h2>
+                    <p class="parasec">
+                        I created this website as a hands-on project to deepen my expertise in <span
+                            style="font-weight: bolder;">HTML, CSS, JavaScript,
+                            GSAP, and three.js.</span> It became my digital playground—a place to experiment with
+                        cutting-edge web
+                        technologies and animation techniques, transforming ideas into interactive experiences.
+
+                        Drawing inspiration from a diverse range of sites, I gradually shaped the design and features
+                        into something distinctly my own. This evolution mirrors my journey as a developer, blending
+                        creativity with technical growth.
+
+                        From the very first page, visitors are greeted with a space-time inspired visual landscape,
+                        next highlighted by fluid raindrop ripple effects. These immersive touches set the stage for an
+                        engaging, interactive exploration of my work, capturing both my passion for web development and
+                        my commitment to unique digital storytelling.
+                    </p>
+                    <a href="https://github.com/captainKLSH/Portfolio-KJP" class="github-btn" target="_blank" rel="noopener">
+                        <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
+                            style="vertical-align: middle; margin-right: 0.5em;">
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                        </svg>
+                        GitHub
+                    </a>
+
+                </div>
+            </section>
+            <section class="hori-section">
+                <div>
+                    <div class="imgsec">
+                        <img class="hori-ig" src="../images/Group 1.png" alt="1">
+                    </div>
+                    <h3 class="he3sec">Creative Web Backgrounds with 3D and Shaders</h3>
+                    <p class="parasec">
+                        I design immersive web page backgrounds using three.js and GLSL shaders, bringing advanced
+                        graphics directly to the browser. <br>
+                        <strong>My projects include(click on title to see pages):</strong> <br>
+                        <strong><a href="./3D Dyanmic Saturn Rings.html">3D Saturn Rings</a> :</strong>
+                        - Realistic Saturn rings rendered in 3D, featuring natural, smooth rotation. The visual theme
+                        seamlessly switches between dark and light modes for a dynamic user experience. <br>
+
+                        <strong><a href="./SuperNova.html">3D Supernova Animation</a> :</strong>
+                        - A visually striking supernova effect, created with custom shaders and real-time 3D rendering,
+                        adds energy and depth to the site background. <br>
+
+                        These interactive backgrounds combine technical skill and artistic vision, using modern web
+                        graphics to create engaging, atmospheric environments for users.
+                    </p>
+                </div>
+            </section>
+            <section class="hori-section">
+                <div>
+                    <div class="imgsec">
+                        <img class="hori-ig" src="../images/Group 2.png" alt="2">
+                    </div>
+                    <h3 class="he3sec">Advanced Interactive Web Backgrounds & Visualizations</h3>
+                    <p class="parasec">
+                        I design responsive web backgrounds using three.js and GLSL shaders, blending real-time graphics
+                        with interactive, scientific storytelling. <br>
+                        <strong>My recent projects include (click on title to see pages):</strong><br>
+
+                        <strong><a href="./threebody.html">3 Body Problem Illustration</a> :</strong>
+                        An animated, physics-inspired visualization that captures the complexity and beauty of the
+                        three-body gravitational problem, serving as both inspiration and an engaging visual
+                        centerpiece. <br>
+
+                        <strong><a href="./DustyPlanet.html">3D Solar Dust Impact</a> :</strong>
+                        A dynamic 3D illustration depicting solar dust particles colliding with a planet, using particle
+                        systems and shaders to create a sense of cosmic motion and depth. <br>
+
+                        <strong><a href="./Donuts.html">4th Dimension ToriSpherical Chains</a> :</strong>
+                        A conceptual visualization of tori-spherical chains representing aspects of four-dimensional
+                        geometry, rendered with custom shaders for a surreal, mathematically inspired effect. <br>
+
+                        These backgrounds are fully responsive, ensuring seamless experiences across devices, and
+                        demonstrate a fusion of technical skill and creative vision in modern web graphics.
+                    </p>
+                </div>
+            </section>
+        </div>
+        <hr>
+        <div style="text-align: center; font-family: var(--body-font4);">
+            <h2 style="color: var(--black-color); font-weight: 800; font-size: 2rem;">Bachelors</h2>
+        </div>
+        <div class="hori-container">
+            <section class="hori-section">
+                <div>
+                    <h2 class="he2sec">Process and Fault Diagnosis with Artificial Neural Network in a Batch Reactor
+                    </h2>
+                    <h3 class="he3sec">Bachelor Thesis, <span style="color: rgb(53, 53, 255);">B. M. S. College of
+                            Engineering</span> | May 2022 &ndash; Aug 2023</h3>
+                    <p class="parasec">
+                        <strong><em>Project Overview</em></strong><br>
+                        Developed a robust, two-stage algorithm for process and fault diagnosis in a batch reactor
+                        environment, leveraging artificial neural networks and advanced feature extraction techniques.
+                        The project focused on enhancing the reliability and safety of chemical processes by enabling
+                        early detection and classification of faults. <br> <br>
+                        <strong>Key Contributions</strong> <br>
+                        <strong>Algorithm Development:</strong><br>
+                        - Designed and implemented a two-stage diagnostic algorithm using Python, tailored for batch
+                        reactor process data. <br>
+
+                        <strong>Feature Extraction:</strong><br>
+                        - Utilized Linear Discriminant Analysis (LDA) to extract the most informative features from
+                        high-dimensional process data, improving the model’s ability to distinguish between normal and
+                        faulty states. <br>
+
+                        <strong>Data Preprocessing:</strong><br>
+                        - Applied z-score standardization to normalize batch reactor data, ensuring consistent input
+                        scaling and improving neural network training stability. <br>
+
+                        <strong>Neural Network Modeling:</strong><br>
+                        - Built and trained an artificial neural network (ANN) for fault detection and classification,
+                        optimizing its architecture and hyperparameters for high accuracy. <br>
+
+                        <strong>Performance Achievements:</strong><br>
+                        - Achieved an optimized model with a mean square error (MSE) of 0.0054, indicating highly
+                        accurate
+                        fault diagnosis and minimal prediction error. <br> <br>
+                        <strong><em>Impact</em></strong><br>
+                        This project demonstrates expertise in process control, data-driven fault diagnosis, and the
+                        application of machine learning to real-world chemical engineering problems. The developed
+                        solution enhances operational safety and efficiency by enabling rapid, automated detection of
+                        process anomalies in batch reactors.
+                    </p>
+                </div>
+            </section>
+            <section class="hori-section">
+                <div>
+                    <h2 class="he2sec">Design of Heat Exchanger Used in Carbon Capture Plant</h2>
+                    <h3 class="he3sec">Course Project, <span style="color: rgb(53, 53, 255);">B. M. S. College of
+                            Engineering</span> | Nov 2021 &ndash; Mar 2022</h3>
+                    <p class="parasec">
+                        As part of a three-member team, I contributed to the design and fabrication of a Shell and Tube
+                        Heat Exchanger tailored for a carbon capture plant. The project focused on optimizing heat
+                        transfer efficiency and reducing energy consumption, leveraging both advanced simulation tools
+                        and manual engineering calculations.
+
+
+                        <br><br>
+                        <strong>Project Highlights:</strong><br>
+
+                        <strong>Process Design:</strong> <br>
+                        &Dagger; Selected a shell and tube configuration for its robustness and suitability in handling
+                        the high-pressure, high-temperature conditions typical of carbon capture processes. <br>
+                        &Dagger; Defined process requirements based on the thermal duties and operational parameters of
+                        the carbon capture plant. <br>
+
+                        <strong>Sustainable Engineering:</strong> <br>
+                        &Dagger; Utilized UNISIM process simulation software to perform dimensional analysis, evaluate
+                        heat transfer coefficients, and optimize the exchanger’s geometry. <br>
+                        &Dagger; Conducted manual design calculations in Microsoft Excel to cross-verify simulation
+                        results, including sizing, pressure drop, and thermal performance. <br>
+
+                        <strong>Performance Outcomes:</strong> <br>
+                        &Dagger; Oversaw the fabrication of the heat exchanger, ensuring adherence to design
+                        specifications and safety standards.<br>
+                        &Dagger; Implemented design improvements that resulted in a 15% increase in heat transfer
+                        efficiency and a significant reduction in overall energy consumption. <br>
+
+                        <strong>Skills Applied:</strong> <br>
+                        &dagger; Design Management <br>
+                        &dagger; Process Simulation (UNISIM) <br>
+                        &dagger; Engineering Calculations (Excel) <br>
+                        &dagger; Team Collaboration and Project Documentation <br> <br>
+                        <strong><em>Outcomes</em></strong><br>
+                        &dash; Achieved a substantial boost in process efficiency, directly supporting the plant’s
+                        sustainability and operational goals. <br>
+                        &dash; Enhanced understanding of the integration between simulation tools and manual engineering
+                        methods in real-world equipment design. <br>
+                        &dash; Developed practical skills in heat exchanger design, process optimization, and project
+                        management within a multidisciplinary engineering context. <br> <br>
+
+                        This project demonstrates my ability to apply engineering principles, simulation software, and
+                        collaborative problem-solving to deliver tangible improvements in process equipment for
+                        sustainable industrial applications.
+                    </p>
+                </div>
+            </section>
+            <section class="hori-section">
+                <div>
+                    <h2 class="he2sec">Simulation of Methoxide and Integrated Methanol and Carbon-Capture Plant</h2>
+                    <h3 class="he3sec">Course Project, <span style="color: rgb(53, 53, 255);">B. M. S. College of
+                            Engineering</span> | Jun 2021 &ndash; Sep 2021</h3>
+                    <p class="parasec">
+                        As part of a four-member team, I designed and simulated a three-stage chemical plant for the
+                        sustainable production
+                        of methoxide, integrating methanol synthesis and carbon capture processes. Utilizing UNISIM
+                        process
+                        simulation
+                        software, we implemented cross-stage conversion of methanol, carbon dioxide, and hydrogen to
+                        maximize methoxide
+                        yield while adhering to cleaner production principles.
+                        <br><br>
+                        <strong>Key highlights of the project include:</strong><br>
+
+                        <strong>Process Simulation:</strong>
+                        Modeled the entire plant workflow in UNISIM, optimizing reaction conditions and equipment sizing
+                        for each stage to ensure efficient conversion and minimal resource consumption. <br>
+
+                        <strong>Sustainable Engineering:</strong>
+                        Incorporated advanced carbon-capture techniques and zero liquid discharge strategies,
+                        aligning the process with green chemistry and sustainable manufacturing practices. <br>
+
+                        <strong>Performance Outcomes:</strong>
+                        Achieved an 83% methoxide yield, demonstrating the viability of integrating methanol synthesis
+                        with carbon capture for environmentally responsible chemical production. <br>
+
+                        <strong>Collaboration:</strong>
+                        Worked closely with team members to troubleshoot simulation challenges, analyze process data,
+                        and
+                        present findings, strengthening both technical and teamwork skills. <br><br>
+
+                        This project showcased my abilities in process simulation, sustainable plant design, and the
+                        application
+                        of advanced
+                        engineering tools to real-world chemical engineering challenges.
+                    </p>
+                </div>
+            </section>
+        </div>
+        
+
+
+
+    </main>
+    <footer class="footer" id="contact">
+        <div class="footer__container">
+            <div class="footer__left">
+                <div class="footgif">
+                    <img src="../images/footergif.gif" alt="High Functioning Sociopath">
+                </div>
+            </div>
+            <div class="footer__right">
+                <div class="footer__info">
+                    <h3 class="footer__title">Kiran Jamuna Prasad</h3>
+                    <p class="footer__tagline">Making Complexity Simple, Beautiful, and Useful.</p>
+                </div>
+                <ul class="footer__socials">
+                    <li>
+                        <a href="https://github.com/captainKLSH" target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub">
+                            <i class="ri-github-fill"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/kiranprasadjp" target="_blank" rel="noopener noreferrer"
+                            aria-label="LinkedIn">
+                            <i class="ri-linkedin-box-fill"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:kjamunap@alumni.cmu.edu" aria-label="Email">
+                            <i class="ri-mail-fill"></i>
+                        </a>
+                    </li>
+                </ul>
+                <p class="footer__copyright">
+                    Design and Coded by &copy; <span id="year"></span> Kiran.
+                </p>
+            </div>
+            <!-- Scroll to Top Button -->
+            <button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top">
+                <i class="ri-arrow-up-line"></i>
+            </button>
+        </div>
+    </footer>
+
+    <!--MAIN JS  -->
+    <script src="../js/arch.js"></script>
+    <script type="module" src="../js/rainarch.js"></script>
+    <script src="../js/main.js"></script>
+    <script type="module" src="../js/shaders.js"></script>
+
+</body>
+
+</html>
