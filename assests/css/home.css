@@ -27,7 +27,7 @@
 .home__container{
     display: flex;
     flex-wrap: wrap;
-    gap: 9rem;
+    gap: 5rem;
 }
 .home__data{
     display: block;
@@ -41,7 +41,7 @@
     
 }
 .image-container1 {
-  width: 35%;
+  width: 39%;
   display: flex;
   order: 2;
 }
