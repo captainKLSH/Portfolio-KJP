@@ -76,78 +76,402 @@
     <main class="main">
         <hr>
         <div style="text-align: center; font-family: var(--body-font4);">
-            <h2 style="color: var(--black-color); font-weight: 800; font-size: 2rem;">Artificial Intelligence & Machine Learning</h2>
+            <h2 style="color: var(--black-color); font-weight: 800; font-size: 2rem;">Artificial Intelligence & Machine
+                Learning</h2>
         </div>
         <div class="hori-container">
             <section class="hori-section">
                 <div>
                     <div class="imgsec">
-                        <img class="hori-ig" src="../images/portfolioimg.png" alt="1">
+                        <img class="hori-ig" src="../images/gpt.png" alt="1">
                     </div>
-                    <h2 class="he2sec">Portfolio Website</h2>
+                    <h2 class="he2sec">PDE-GPT-Solving-Physics-with-Transformers</h2>
                     <p class="parasec">
-                        I created this website as a hands-on project to deepen my expertise in <span
-                            style="font-weight: bolder;">HTML, CSS, JavaScript,
-                            GSAP, and three.js.</span> It became my digital playground—a place to experiment with
-                        cutting-edge web
-                        technologies and animation techniques, transforming ideas into interactive experiences.
+                        - <strong>Developed a Physics-Informed Transformer (PDE-GPT):</strong> Adapted GPT-style attention architectures
+                        to model and solve Partial Differential Equations (PDEs), treating physical simulation as a
+                        sequence-to-sequence prediction problem. <br>
 
-                        Drawing inspiration from a diverse range of sites, I gradually shaped the design and features
-                        into something distinctly my own. This evolution mirrors my journey as a developer, blending
-                        creativity with technical growth.
+                        - <strong>Engineered Continuous Data Embeddings:</strong> Designed custom input layers to project high-dimensional,
+                        <strong>continuous physical fields (time-series and spatial grids)</strong> into latent vector spaces suitable
+                        for Transformer processing. <br>
 
-                        From the very first page, visitors are greeted with a space-time inspired visual landscape,
-                        next highlighted by fluid raindrop ripple effects. These immersive touches set the stage for an
-                        engaging, interactive exploration of my work, capturing both my passion for web development and
-                        my commitment to unique digital storytelling.
+                        - <strong> Optimized Surrogate Modeling:</strong> Trained the model using <strong>Mean Squared Error (MSE)</strong> loss to minimize
+                        divergence from ground-truth physics, creating a data-driven solver capable of rapid inference
+                        for complex dynamic systems. <br>
+
+                        - <strong>Implemented Self-Attention for Physics:</strong> leveraged Multi-Head Attention to capture non-local
+                        spatial correlations and temporal dependencies in fluid/thermal dynamics. <br>
+
+                        <a href="https://github.com/PDE-GPT-Solving-Physics-with-Transformers-" class="github-btn"
+                            target="_blank" rel="noopener">
+                            <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
+                                style="vertical-align: middle; margin-right: 0.5em;">
+                                <path
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            GitHub
+                        </a>
                     </p>
                 </div>
             </section>
             <section class="hori-section">
                 <div>
                     <div class="imgsec">
-                        <img class="hori-ig" src="../images/portfolioimg.png" alt="1">
+                        <img class="hori-ig" src="../images/fake.png" alt="1">
                     </div>
-                    <h2 class="he2sec">Portfolio Website</h2>
+                    <h2 class="he2sec">Deep Convolutional GANs-DCGAN</h2>
                     <p class="parasec">
-                        I created this website as a hands-on project to deepen my expertise in <span
-                            style="font-weight: bolder;">HTML, CSS, JavaScript,
-                            GSAP, and three.js.</span> It became my digital playground—a place to experiment with
-                        cutting-edge web
-                        technologies and animation techniques, transforming ideas into interactive experiences.
+                        - <strong>Architected a Deep Convolutional GAN (DCGAN) in PyTorch</strong> to synthesize
+                        realistic 64x64 RGB images
+                        from a 100-dimensional latent noise vector <em>Z</em>. <br>- Engineered the <strong>Generator
+                            Network using
+                            ConvTranspose2d</strong> layers with Batch Normalization to upsample latent vectors into
+                        spatially
+                        coherent image tensors. <br>- <strong>Stabilized Adversarial Training:</strong> Implemented
+                        specific architectural
+                        constraints (Strided Convolutions instead of Pooling) and custom weight initialization to
+                        prevent <strong>Mode Collapse and Vanishing Gradients</strong>. <br>- <strong>Optimized the
+                            Min-Max Game:</strong> Tuned the adversarial
+                        loss function (Binary Cross Entropy) to balance the convergence speed of the Discriminator and
+                        Generator, ensuring a stable Nash Equilibrium. <br>
 
-                        Drawing inspiration from a diverse range of sites, I gradually shaped the design and features
-                        into something distinctly my own. This evolution mirrors my journey as a developer, blending
-                        creativity with technical growth.
-
-                        From the very first page, visitors are greeted with a space-time inspired visual landscape,
-                        next highlighted by fluid raindrop ripple effects. These immersive touches set the stage for an
-                        engaging, interactive exploration of my work, capturing both my passion for web development and
-                        my commitment to unique digital storytelling.
+                        <a href="https://github.com/Deep-Convolutional-GANs-DCGAN-" class="github-btn" target="_blank"
+                            rel="noopener">
+                            <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
+                                style="vertical-align: middle; margin-right: 0.5em;">
+                                <path
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            GitHub
+                        </a>
                     </p>
                 </div>
             </section>
             <section class="hori-section">
                 <div>
                     <div class="imgsec">
-                        <img class="hori-ig" src="../images/portfolioimg.png" alt="1">
+                        <img class="hori-ig" src="../images/minsit.png" alt="1">
                     </div>
-                    <h2 class="he2sec">Portfolio Website</h2>
+                    <h2 class="he2sec">Denoising Diffusion Probabilistic Models DDPM</h2>
                     <p class="parasec">
-                        I created this website as a hands-on project to deepen my expertise in <span
-                            style="font-weight: bolder;">HTML, CSS, JavaScript,
-                            GSAP, and three.js.</span> It became my digital playground—a place to experiment with
-                        cutting-edge web
-                        technologies and animation techniques, transforming ideas into interactive experiences.
+                        <strong>
+                            - Implemented a Denoising Diffusion Probabilistic Model (DDPM)</strong> from first
+                        principles using
+                        <strong>PyTorch</strong>, replicating the architecture of modern Generative AI systems (like
+                        DALL-E) on the MNIST
+                        dataset. <br> - <strong>Architected a Conditional U-Net</strong> to serve as the
+                        noise-prediction backbone, learning to
+                        reverse a Gaussian diffusion process across 1,000 timesteps. <br> - <strong>Engineered the
+                            Forward and Reverse
+                            Markov Chains</strong>, defining custom variance schedules (&beta; )to control the
+                        signal-to-noise
+                        ratio during the training process. <br> - <strong>Generated High-Fidelity Synthetic
+                            Data:</strong> Successfully trained
+                        the model to synthesize novel, high-quality handwritten digits by iteratively denoising random
+                        Gaussian tensors. <br>
+                        <a href="https://github.com/Denoising-Diffusion-Probabilistic-Models-DDPM-" class="github-btn"
+                            target="_blank" rel="noopener">
+                            <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
+                                style="vertical-align: middle; margin-right: 0.5em;">
+                                <path
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            GitHub
+                        </a>
+                    </p>
+                </div>
+            </section>
+            <section class="hori-section">
+                <div>
+                    <div class="imgsec">
+                        <img class="hori-ig" src="../images/cifra.png" alt="1">
+                    </div>
+                    <h2 class="he2sec">CIFAR 10 Classification via CNNs</h2>
+                    <p class="parasec">
+                        Designed and trained a custom <strong>Convolutional Neural Network (CNN) on the CIFAR-10
+                            dataset</strong> using
+                        PyTorch, achieving <strong>83% classification accuracy</strong> through rigorous architecture
+                        tuning. <br>
 
-                        Drawing inspiration from a diverse range of sites, I gradually shaped the design and features
-                        into something distinctly my own. This evolution mirrors my journey as a developer, blending
-                        creativity with technical growth.
+                        <strong>Optimized Model Convergence:</strong> Conducted systematic hyperparameter tuning
+                        experiments, identifying
+                        <strong>SGD with Momentum (0.9)</strong> as superior to Adam for this specific non-convex loss
+                        landscape. <br>
 
-                        From the very first page, visitors are greeted with a space-time inspired visual landscape,
-                        next highlighted by fluid raindrop ripple effects. These immersive touches set the stage for an
-                        engaging, interactive exploration of my work, capturing both my passion for web development and
-                        my commitment to unique digital storytelling.
+                        <strong>Mitigated Overfitting:</strong> Implemented regularization techniques including Dropout
+                        (0.5) and Data
+                        Normalization, ensuring the model generalized effectively to the <strong>10,000 unseen test
+                            images</strong>. <br>
+
+                        <strong>Visualized Training Dynamics:</strong> Built monitoring pipelines with Matplotlib to
+                        plot Loss and
+                        Accuracy curves, allowing for real-time diagnosis of underfitting/overfitting phases. <br>
+                        <a href="https://github.com/captainKLSH/CIFAR-10-Classification-via-CNNs" class="github-btn"
+                            target="_blank" rel="noopener">
+                            <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
+                                style="vertical-align: middle; margin-right: 0.5em;">
+                                <path
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            GitHub
+                        </a>
+                    </p>
+                </div>
+            </section>
+            <section class="hori-section">
+                <div>
+                    <div class="imgsec">
+                        <img class="hori-ig" src="../images/eva.png" alt="1">
+                    </div>
+                    <h2 class="he2sec">ComputerVision Evaluating Perception Planning and Control in SafeBench</h2>
+                    <p class="parasec">
+                        - <strong>Benchmarked Object Detection architectures (YOLOv5 vs. Faster R-CNN)</strong> for
+                        autonomous navigation,
+                        implementing custom evaluation pipelines to calculate <strong>Mean Average Precision
+                            (mAP)</strong> across
+                        varying <strong>IoU thresholds (0.5 -- 0.9)</strong>. <br>
+                        - Provisioned <strong>high-performance cloud infrastructure on AWS (EC2 g5.xlarge)</strong> to
+                        host the CARLA
+                        Simulator, configuring NVIDIA drivers, TurboVNC for remote visualization, and headless GPU
+                        rendering for efficient training. <br>
+                        - Trained a <strong>Soft Actor-Critic (SAC) Reinforcement Learning agent in the CARLA
+                            Simulator</strong>,
+                        enabling
+                        the vehicle to navigate complex traffic scenarios and outperform traditional PID rule-based
+                        controllers in safety-critical environments. <br>
+                        - <strong>Orchestrated a modular simulation pipeline</strong> integrating <strong>Computer
+                            Vision evaluation (Perception)
+                            and Reinforcement Learning (Control)</strong> modules within a unified Ubuntu/Conda
+                        environment. <br>
+                        - <strong>Conducted Safety Stress-Testing</strong>: Evaluated agent robustness in accident-prone
+                        scenarios within
+                        SafeBench, analyzing failure modes in perception-planning coupling. <br>
+                        <a href="https://github.com/captainKLSH/ComputerVision-Evaluating-Perception-Planning-and-Control-in-SafeBench"
+                            class="github-btn" target="_blank" rel="noopener">
+                            <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
+                                style="vertical-align: middle; margin-right: 0.5em;">
+                                <path
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            GitHub
+                        </a>
+                    </p>
+                </div>
+            </section>
+            <section class="hori-section">
+                <div>
+                    <div class="imgsec">
+                        <img class="hori-ig" src="../images/parki.png" alt="1">
+                    </div>
+                    <h2 class="he2sec">Model-Based Reinforcement Learning for Autonomous Parking</h2>
+                    <p class="parasec">
+
+                        - <strong>Developed a Model-Based Reinforcement Learning (MBRL)</strong> system for autonomous
+                        vehicle parking,
+                        replacing trial-and-error learning with a learned internal dynamics model for trajectory
+                        planning.
+                        <br>
+
+                        - Implemented <strong>Probabilistic Dynamics Models using GPyTorch (Gaussian Processes) and
+                            PyTorch</strong>,
+                        enabling the agent to estimate uncertainty and predict future states (position, velocity) with
+                        high fidelity.
+                        <br>
+
+                        - <strong>Engineered a control policy</strong> within the <em>highway-env</em> simulator,
+                        successfully optimizing throttle
+                        and steering actuation to achieve precise goal-pose alignment in a constrained parking
+                        environment.
+                        <br>
+
+                        <a href="https://github.com/captainKLSH/Model-Based-Reinforcement-Learning" class="github-btn"
+                            target="_blank" rel="noopener">
+                            <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
+                                style="vertical-align: middle; margin-right: 0.5em;">
+                                <path
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            GitHub
+                        </a>
+                    </p>
+                </div>
+            </section>
+            <section class="hori-section">
+                <div>
+                    <div class="imgsec">
+                        <img class="hori-ig" src="../images/foil.png" alt="1">
+                    </div>
+                    <h2 class="he2sec">Generative Design of Airfoils using VAEs and GANs</h2>
+                    <p class="parasec">
+                        - Developed a Generative Design Framework for aerodynamic geometries, implementing and
+                        benchmarking <strong>Variational Autoencoders (VAEs) and GANs</strong> to synthesize novel 2D
+                        airfoil shapes. <br>
+
+                        - <strong>Engineered the VAE Architecture:</strong> Optimized the Evidence Lower Bound (ELBO)
+                        loss function
+                        (Reconstruction + KL Divergence) to map airfoil coordinates into a structured probabilistic
+                        latent space, ensuring geometric continuity. <br>
+
+                        - <strong>Engineered the GAN Architecture:</strong> Implemented a Min-Max adversarial training
+                        loop, balancing the
+                        Generator and Discriminator to achieve a stable Nash Equilibrium and generating highly diverse
+                        shape candidates. <br>
+
+                        - <strong>Conducted Comparative Analysis:</strong> Evaluated model outputs based on geometric
+                        smoothness and mode
+                        coverage, identifying VAEs as superior for interpolation and GANs as superior for novel design
+                        exploration. <br>
+
+                        <a href="https://github.com/Generative-Design-of-Airfoils-using-VAEs-and-GANs"
+                            class="github-btn" target="_blank" rel="noopener">
+                            <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
+                                style="vertical-align: middle; margin-right: 0.5em;">
+                                <path
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            GitHub
+                        </a>
+                    </p>
+                </div>
+            </section>
+            <section class="hori-section">
+                <div>
+                    <div class="imgsec">
+                        <img class="hori-ig" src="../images/adversial.png" alt="1">
+                    </div>
+                    <h2 class="he2sec">Attack a self driving car with an adversarial stop sign and noise</h2>
+                    <p class="parasec">
+
+                        - Evaluated the robustness of <strong>Autonomous Vehicle perception systems
+                            (ResNet-18)</strong> by implementing
+                        <strong>Adversarial Attacks (FGM and PGD) in PyTorch</strong>, successfully forcing targeted
+                        misclassifications (e.g., Stop
+                        Sign - Street Car) to expose security vulnerabilities.
+                        <br>
+                        - <strong>Conducted Interpretability</strong> analysis on
+                        <strong>CNN architectures (AlexNet)</strong> using <strong>Saliency Maps and Maximal
+                            Activation visualization</strong> to identify
+                        high-priority pixel features driving model predictions.
+                        <br>
+                        - <strong>Quantified probabilistic robustness</strong>
+                        against environmental noise using <strong>Monte Carlo (MC) sampling</strong>, estimating
+                        misclassification rates
+                        and convergence errors under Gaussian perturbation scenarios.
+                        <br>
+                        <a href="https://github.com/captainKLSH/Attack-a-self-driving-car-with-an-adversarial-stop-sign-and-noise"
+                            class="github-btn" target="_blank" rel="noopener">
+                            <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
+                                style="vertical-align: middle; margin-right: 0.5em;">
+                                <path
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            GitHub
+                        </a>
+                    </p>
+                </div>
+            </section>
+            <section class="hori-section">
+                <div>
+                    <div class="imgsec">
+                        <img class="hori-ig" src="../images/eda.png" alt="1">
+                    </div>
+                    <h2 class="he2sec">Exploratory Data Analysis of Plastic Waste Using K-Means Clustering</h2>
+                    <p class="parasec">
+
+                        - Conducted <strong>K-Means clustering</strong> on global plastic waste data, identifying
+                        major contributors such
+                        as India and China, and forming three distinct clusters based on contributions. Analyzed
+                        large
+                        datasets to reveal significant patterns and need for targeted interventions.
+                        <br>
+                        - Demonstrated skills in data preprocessing, clustering analysis, and interpretation with
+                        Plotly
+                        for visualizing maps and <strong>seaborn-Heatmap correlations</strong>. Addressed K-Means
+                        limitations, ensuring
+                        robust data handling for actionable insights to inform environmental strategies.
+                        <br>
+                        <a href="https://github.com/captainKLSH/Exploratory-Data-Analysis-of-Plastic-Waste-Using-K-Means-Clustering"
+                            class="github-btn" target="_blank" rel="noopener">
+                            <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
+                                style="vertical-align: middle; margin-right: 0.5em;">
+                                <path
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            GitHub
+                        </a>
+                    </p>
+                </div>
+            </section>
+            <section class="hori-section">
+                <div>
+                    <div class="imgsec">
+                        <img class="hori-ig" src="../images/cta.png" alt="1">
+                    </div>
+                    <h2 class="he2sec">Concept Trend Analyzer API </h2>
+                    <p class="parasec">
+
+                        - Created an <strong>OpenAlex API</strong> for Concept Search and Trend Analysis, exploiting
+                        Python and
+                        RESTful
+                        API design. Enabled users to check for concepts, retrieve related concepts and IDs, and
+                        analyze
+                        trends in scholarly works and citations over ten years. <br>
+
+
+                        - Executed features such as concept search, related concepts retrieval, and trend
+                        visualization,
+                        ensuring 100% accurate and efficient data retrieval. Employed <strong>version control in
+                            Git</strong>,
+                        rigorous
+                        testing, and code quality checks with <strong>Black and Flake8 </strong>to maintain project
+                        integrity. <br>
+
+                        <a href="https://github.com/captainKLSH/ConceptTrendAnalyzer" class="github-btn" target="_blank"
+                            rel="noopener">
+                            <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
+                                style="vertical-align: middle; margin-right: 0.5em;">
+                                <path
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            GitHub
+                        </a>
+                    </p>
+                </div>
+            </section>
+            <section class="hori-section">
+                <div>
+                    <div class="imgsec">
+                        <img class="hori-ig" src="../images/mqtt.png" alt="1">
+                    </div>
+                    <h2 class="he2sec">Machine Learning Modeling on MQTT dataset</h2>
+                    <p class="parasec">
+
+                        - Ingested and managed large data in <strong>PostgreSQL</strong>, including schema design,
+                        and constraint
+                        identification. Constructed Python functions with <strong>PySpark data analysis</strong>,
+                        including MQTT and
+                        TCP,
+                        and integrated real-time data from Google News for cyber-attack trend analysis.
+                        <br>
+
+                        - Built and modified machine learning models in <strong>Spark and PyTorch</strong> to
+                        predict cyber-attacks,
+                        working with <strong>Docker and Kubernetes</strong> applying feature engineering, parameter
+                        tuning,
+                        classifier
+                        comparison and tested for <strong>92.3% accuracy</strong>.
+                        <br>
+                        <a href="https://github.com/captainKLSH/ML-modelling-on-MQTT-dataset" class="github-btn"
+                            target="_blank" rel="noopener">
+                            <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
+                                style="vertical-align: middle; margin-right: 0.5em;">
+                                <path
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            GitHub
+                        </a>
+
+
                     </p>
                 </div>
             </section>
@@ -166,9 +490,12 @@
                     <p class="parasec">
                         Developed a comprehensive Flutter-based seminar attendance management app for <span
                             style="color: rgb(196, 18, 48)">Carnegie Mellon University</span> as an employee.
-                        The app enables students to register and securely mark attendance using an event-specific 6-digit code, with real-time
-                        validation of location, date, time, and code to ensure authenticity. Attendance tracking and certificate eligibility are
-                        fully automated, streamlining processes for students and administrators. Planned future enhancements include AI-driven
+                        The app enables students to register and securely mark attendance using an event-specific
+                        6-digit code, with real-time
+                        validation of location, date, time, and code to ensure authenticity. Attendance tracking and
+                        certificate eligibility are
+                        fully automated, streamlining processes for students and administrators. Planned future
+                        enhancements include AI-driven
                         GPS anomaly detection to further improve the security and reliability of attendance records.
                     </p>
                 </div>
@@ -181,40 +508,51 @@
                     </div>
                     <h2 class="he2sec">Flutter-based Comic Book Reader (MangaBubble) App</h2>
                     <p class="parasec">
-                        Developed a versatile Flutter comic book reader app that enables users to seamlessly read and manage digital comics in
-                        multiple formats, including CBZ, CBR (zip/rar), EPUB, and PDF. The app offers a rich and customizable reading experience
+                        Developed a versatile Flutter comic book reader app that enables users to seamlessly read and
+                        manage digital comics in
+                        multiple formats, including CBZ, CBR (zip/rar), EPUB, and PDF. The app offers a rich and
+                        customizable reading experience
                         with the following features: <br>
-                        &dash; <strong>Multi-format Support:</strong> Opens CBZ, CBR, EPUB, and PDF files directly from the user's device storage. <br>
-                        
-                        &dash; <strong>Fluid Reading Experience:</strong> Provides smooth, book-like page transitions, along with intuitive zoom, pan, and scroll
+                        &dash; <strong>Multi-format Support:</strong> Opens CBZ, CBR, EPUB, and PDF files directly from
+                        the user's device storage. <br>
+
+                        &dash; <strong>Fluid Reading Experience:</strong> Provides smooth, book-like page transitions,
+                        along with intuitive zoom, pan, and scroll
                         gestures for easy navigation. <br>
-                        
-                        &dash; <strong>Flexible Viewing Options:</strong> Offers both grid and list views for the comic library, with card-based displays and thumbnail
+
+                        &dash; <strong>Flexible Viewing Options:</strong> Offers both grid and list views for the comic
+                        library, with card-based displays and thumbnail
                         image previews. <br>
-                        
-                        &dash; <strong>Theming:</strong> Includes light and dark themes to suit user preferences and reading conditions. <br>
+
+                        &dash; <strong>Theming:</strong> Includes light and dark themes to suit user preferences and
+                        reading conditions. <br>
                         &dash; <strong>User-Friendly Functions:</strong> <br>
-                        
+
                         &nbsp; &nbsp; &rArr; Remembers and saves the user's reading position for each comic. <br>
-                        
-                        &nbsp; &nbsp; &rArr; Allows selection of reading direction (left-to-right or right-to-left) and page scaling preferences. <br>
-                        
-                        &nbsp; &nbsp; &rArr; Supports orientation lock for consistent landscape or portrait viewing. <br>
-                        
-                        &dash; <strong>Comics Management: </strong>Lets users organize and access their comic collection from device storage efficiently. <br>
-                        
-                        This app combines modern UI elements, customizable themes, and robust file handling to provide an enjoyable and
+
+                        &nbsp; &nbsp; &rArr; Allows selection of reading direction (left-to-right or right-to-left) and
+                        page scaling preferences. <br>
+
+                        &nbsp; &nbsp; &rArr; Supports orientation lock for consistent landscape or portrait viewing.
+                        <br>
+
+                        &dash; <strong>Comics Management: </strong>Lets users organize and access their comic collection
+                        from device storage efficiently. <br>
+
+                        This app combines modern UI elements, customizable themes, and robust file handling to provide
+                        an enjoyable and
                         accessible comic reading experience on any device.
-                                                
+
                     </p>
-                    <a href="https://github.com/captainKLSH/MangaBubble" class="github-btn" target="_blank" rel="noopener">
+                    <a href="https://github.com/captainKLSH/MangaBubble" class="github-btn" target="_blank"
+                        rel="noopener">
                         <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
                             style="vertical-align: middle; margin-right: 0.5em;">
                             <path
                                 d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
                         </svg>
                         GitHub
-                        </a>
+                    </a>
                 </div>
             </section>
             <section class="hori-section">
@@ -225,23 +563,28 @@
                     </div>
                     <h2 class="he2sec">Poképedia &dash; Creative Flutter App</h2>
                     <p class="parasec">
-                    Developed an engaging Poképedia app with Flutter, featuring a Lottie-animated login, real-time PokéAPI
-                    integration for live Pokémon data, and modern, interactive UI elements like animated cards and type badges. The app
-                    delivers intuitive, detailed Pokémon information pages and employs modular Flutter code with open-source packages such
-                    as http and lottie, showcasing strong skills in Flutter development, creative UI/UX design, and API integration.                    
+                        Developed an engaging Poképedia app with Flutter, featuring a Lottie-animated login, real-time
+                        PokéAPI
+                        integration for live Pokémon data, and modern, interactive UI elements like animated cards and
+                        type badges. The app
+                        delivers intuitive, detailed Pokémon information pages and employs modular Flutter code with
+                        open-source packages such
+                        as http and lottie, showcasing strong skills in Flutter development, creative UI/UX design, and
+                        API integration.
                     </p>
-                    <a href="https://github.com/captainKLSH/Pokepedia" class="github-btn" target="_blank" rel="noopener">
-                    <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
-                        style="vertical-align: middle; margin-right: 0.5em;">
-                        <path
-                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
-                    </svg>
-                    GitHub
+                    <a href="https://github.com/captainKLSH/Pokepedia" class="github-btn" target="_blank"
+                        rel="noopener">
+                        <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
+                            style="vertical-align: middle; margin-right: 0.5em;">
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                        </svg>
+                        GitHub
                     </a>
                 </div>
             </section>
         </div>
-        <hr>        
+        <hr>
         <div style="text-align: center; font-family: var(--body-font4);">
             <h2 style="color: var(--black-color); font-weight: 800; font-size: 2rem;">Web Development</h2>
         </div>
@@ -268,7 +611,8 @@
                         engaging, interactive exploration of my work, capturing both my passion for web development and
                         my commitment to unique digital storytelling.
                     </p>
-                    <a href="https://github.com/captainKLSH/Portfolio-KJP" class="github-btn" target="_blank" rel="noopener">
+                    <a href="https://github.com/captainKLSH/Portfolio-KJP" class="github-btn" target="_blank"
+                        rel="noopener">
                         <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
                             style="vertical-align: middle; margin-right: 0.5em;">
                             <path
@@ -337,6 +681,37 @@
             <h2 style="color: var(--black-color); font-weight: 800; font-size: 2rem;">Bachelors</h2>
         </div>
         <div class="hori-container">
+            <section class="hori-section">
+                <div>
+                    <div class="imgsec">
+                        <img class="hori-ig" src="../images/magazinee.png" alt="1">
+                    </div>
+                    <h2 class="he2sec">Magazine: <span style="font-weight: bolder;">CHEMZONE</span>
+                    </h2>
+                    <h3 class="he3sec">Annual publication, <span style="color: rgb(53, 53, 255);">B. M. S. College of
+                            Engineering</span> | Feb 2020 &ndash; Aug 2023</h3>
+                    <p class="parasec">
+                        <strong><em>Project Overview</em></strong><br>
+                        CHEMZONE is a student-driven annual magazine created for the Indian Institute for Chemical
+                        Engineers
+                        (IIChE) BMSCE Student Chapter. The primary theme of the magazine is Sustainability, addressing
+                        various environmental and technological advancements in the field of chemical engineering. The
+                        magazine serves as a platform for students and faculty to share knowledge, showcase research,
+                        and celebrate the achievements of the department.<br> <br>
+                        <strong>THEME:</strong> <br>
+                        <strong>Sustainability in Chemical Engineering</strong><br>
+                        <br>
+                        <a href="https://github.com/captainKLSH/MAG1" class="github-btn" target="_blank" rel="noopener">
+                            <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
+                                style="vertical-align: middle; margin-right: 0.5em;">
+                                <path
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            GitHub
+                        </a>
+                    </p>
+                </div>
+            </section>
             <section class="hori-section">
                 <div>
                     <h2 class="he2sec">Process and Fault Diagnosis with Artificial Neural Network in a Batch Reactor
@@ -473,7 +848,7 @@
                 </div>
             </section>
         </div>
-        
+
 
 
 
