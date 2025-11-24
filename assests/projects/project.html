@@ -80,7 +80,47 @@
         <section>
             <div class="bg" style="filter: drop-shadow(0px 0px 10px rgb(255, 214, 80)) opacity(50%);"
                 data-bg="../images/gkhh.png"></div>
-            <h1></h1>
+            <div class="ip"><img style="width: 42%;" class="ip1" src="../images/cest.png" alt="1"></div>
+            <div class="ph1">
+                <h1>End-to-End MLOps Pipeline for Chest Cancer Detection</h1>
+                <hr>
+            </div>
+            <div class="pp">
+                <p><strong>Key Technologies:</strong> Python, TensorFlow/Keras, VGG16, MLflow, Docker, AWS (ECR/EC2),
+                    DVC (Data Version Control)
+                <ul class="psum">
+                    <li>Built a custom logging infrastructure to track pipeline execution steps <strong>(Data Ingestion
+                            &rArr;
+                            Training &rArr; Evaluation)</strong>, enabling real-time debugging and audit trails for the
+                        model
+                        training
+                        lifecycle.</li>
+                    <li>Fine-tuned the <strong>VGG16 architecture</strong> (pre-trained on ImageNet) by freezing initial
+                        convolutional
+                        blocks and retraining dense layers, effectively overcoming data scarcity issues in medical
+                        imaging to <strong><em>achieve 78% accuracy.</em></strong></li>
+                    <li>Utilized <strong>MLflow</strong> to log training metrics (Loss, Accuracy) and parameters
+                        (Learning Rate, Batch
+                        Size), creating a centralized dashboard to compare multiple experiments and select the optimal
+                        model version.
+                    </li>
+                    <li>Encapsulated the entire application using <strong>Docker</strong>,
+                        pushed versioned images to AWS ECR (Elastic Container Registry), and automated
+                        deployment to <strong>AWS EC2 instances</strong>.</li>
+                    <li>Deployed the saved model as a microservice on AWS EC2, configuring the environment to serve
+                        real-time predictions for chest CT scan imagery</li>
+                </ul>
+                <a href="https://github.com/captainKLSH/End-to-End-DeepLearning-Chest-Cancer-Classification"
+                    class="github-btn" target="_blank" rel="noopener">
+                    <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
+                        style="vertical-align: middle; margin-right: 0.5em;">
+                        <path
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                    </svg>
+                    GitHub
+                </a>
+                </p>
+            </div>
         </section>
         <section>
             <div class="bg" style="filter: drop-shadow(0px 0px 10px rgb(255, 80, 80)) opacity(50%);"
@@ -91,7 +131,7 @@
                 <hr>
             </div>
             <div class="pp">
-                <p><strong>Key Technologies:</strong> Flutter, Dart, Firebase, Google Cloud Platform, SQL, A/B Testing.
+                <p><strong>Key Technologies:</strong> Flutter, Dart, Firebase, Google Cloud Platform, SQL, A/B Testing
                 <ul class="psum">
                     <li>Architected a robust <strong>Flutter application</strong> integrated with a <strong>Google Cloud
                             Platform (GCP) & Firebase backend</strong>. The system replaces manual sign-ins with a
@@ -182,21 +222,25 @@
                         Runaway categories for supervised learning.
                     </li>
                     <li>
-                        Implemented <strong>'Sliding Window' preprocessing techniques</strong> to transform raw continuous sensor streams
+                        Implemented <strong>'Sliding Window' preprocessing techniques</strong> to transform raw
+                        continuous sensor streams
                         into sequential data structures, enabling the model to capture temporal dependencies and
                         pre-fault trends.
                     </li>
                     <li>
-                        Designed a custom <strong>Multi-Layer LSTM architecture with Dropout regularization</strong> to prevent
+                        Designed a custom <strong>Multi-Layer LSTM architecture with Dropout regularization</strong> to
+                        prevent
                         overfitting, specifically optimized for non-linear, dynamic chemical processes where traditional
                         statistical controls fail.
                     </li>
                     <li>
-                        Integrated <strong>Transfer Learning</strong> capabilities, structuring the model to be adaptable to Continuous
+                        Integrated <strong>Transfer Learning</strong> capabilities, structuring the model to be
+                        adaptable to Continuous
                         Stirred-Tank Reactors (CSTR) and Plug Flow Reactors (PFR) with minimal re-training.
                     </li>
                     <li>
-                        <strong>Achieved 98.35% Test Accuracy and 0.98 F1 Score</strong>, successfully identifying <strong>95% of thermal runaway</strong>
+                        <strong>Achieved 98.35% Test Accuracy and 0.98 F1 Score</strong>, successfully identifying
+                        <strong>95% of thermal runaway</strong>
                         events and outperforming traditional Statistical Process Control (SPC) methods.
                     </li>
                 </ul>
@@ -215,7 +259,51 @@
         <section>
             <div class="bg" style="filter: drop-shadow(0px 0px 10px rgb(80, 255, 118)) opacity(50%);"
                 data-bg="../images/midoria.png"></div>
-            <h1></h1>
+            <div class="ip"><img style="width: 42%;" class="ip1" src="../images/llms.png" alt="1"></div>
+            <div class="ph1">
+                <h1>Semantically-Aware-Book-Recommender-System</h1>
+                <hr>
+            </div>
+            <div class="pp">
+                <p><strong>Key Technologies:</strong> Python, LangChain, Hugging Face (Transformers), Seaborn, Vector
+                    DBs
+                <ul class="psum">
+                    <li>Utilized <strong>Seaborn heatmaps and correlation matrices</strong> to identify missingness
+                        patterns,
+                        systematically pruning features (short text &lt; 25 chars) to improve model signal-to-noise
+                        ratio.</li>
+                    <li>Engineered a <span style="color: red;"><strong>Semantic Search Recommendation
+                                Engine</strong></span> using <strong>LangChain and Hugging
+                            Face</strong>, utilizing
+                        vector embeddings to retrieve contextually similar books based on description chunks.</li>
+                    <li>Solved the "Cold Start" & Missing Data problem by implementing <strong>Zero-Shot
+                            Classification</strong>
+                        <span style="color: rgb(78, 82, 205);"><code>(bart-large-mnli)</code></span>, predicting missing
+                        category tags for sparse datasets to resolve long-tail
+                        distribution issues.
+                    </li>
+                    <li>Leveraged pre-trained Transformer models <span
+                            style="color: blueviolet;"><code>(bart-large-mnli, distilroberta) </code></span> to perform
+                        unsupervised classification and sentiment scoring/ <strong>Sentiment Analysis</strong> on book
+                        descriptions,
+                        enriching the original dataset with predicted
+                        features.</li>
+                    <li>Built a persistent <strong> Vector Database</strong> to index thousands of book ISBNs, enabling
+                        sub-second
+                        retrieval of top-10 semantic matches.
+                    </li>
+                </ul>
+                <a href="https://github.com/captainKLSH/Semantically-Aware-Book-Recommender-System" class="github-btn"
+                    target="_blank" rel="noopener">
+                    <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
+                        style="vertical-align: middle; margin-right: 0.5em;">
+                        <path
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                    </svg>
+                    GitHub
+                </a>
+                </p>
+            </div>
         </section>
         <section>
             <div class="bg" style="filter: drop-shadow(16px -16px 16px rgb(255, 255, 255)) opacity(60%);"
