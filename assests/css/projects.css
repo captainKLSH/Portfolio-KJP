@@ -66,4 +66,180 @@ hr {
 
 }
 
+/* ── Base mobile styles (applies to all, overridden upward) ── */
 
+section {
+  height: auto;
+  min-height: 100vh;
+  padding: 5rem 0 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.ip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.ip1 {
+  width: 90% !important;
+  max-width: 340px;
+  height: auto;
+}
+
+.ph1 {
+  padding: 0 1.2rem;
+  text-align: center;
+}
+
+.ph1 h1 {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+hr {
+  width: 95%;
+  margin: 0.75rem auto;
+}
+
+.pp {
+  padding: 0 1.2rem;
+  font-size: 0.92rem;
+}
+
+.psum {
+  padding-left: 1.2rem;
+  line-height: 1.55;
+}
+
+.psum li {
+  margin-bottom: 0.5rem;
+}
+
+.github-btn {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+
+/* ==============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================== */
+@media screen and (min-width: 340px){
+  
+  .ph1 h1 {
+    font-size: 1.05rem;
+  }
+
+  .pp {
+    font-size: 0.93rem;
+  }
+}
+@media screen and (min-width: 480px){
+  .ip1 {
+    width: 75% !important;
+    max-width: 380px;
+  }
+
+  .ph1 h1 {
+    font-size: 1.1rem;
+  }
+
+  .pp {
+    padding: 0 1.6rem;
+    font-size: 0.97rem;
+  }
+
+  .psum {
+    padding-left: 1.5rem;
+  }
+}
+/* ── Tablet: 768px ── */
+@media screen and (min-width: 768px){
+  section {
+    padding: 5rem 0 3.5rem;
+  }
+
+  .ip1 {
+    width: 60% !important;
+    max-width: 440px;
+  }
+
+  .ph1 h1 {
+    font-size: 1.15rem;
+  }
+
+  hr {
+    width: 88%;
+  }
+
+  .pp {
+    padding: 0 3rem;
+    font-size: 1rem;
+  }
+
+  .psum {
+    padding-left: 1.8rem;
+  }
+}
+/* ── Desktop: 1000px ── */
+@media screen and (min-width: 1000px){
+  section {
+    padding: 5rem 0 3.5rem;
+  }
+
+  .ip1 {
+    width: 70% !important;
+    max-width: 440px;
+  }
+
+  .ph1 h1 {
+    font-size: 1.2rem;
+  }
+
+  hr {
+    width: 88%;
+  }
+
+  .pp {
+    padding: 0 3rem;
+    font-size: 1.01rem;
+  }
+
+  .psum {
+    padding-left: 1.9rem;
+  }
+  
+}
+/* ── Large Desktop: 1280px ── */
+@media screen and (min-width: 1280px){
+  section {
+    padding: 5rem 0 3.5rem;
+  }
+
+  .ip1 {
+    width: 80% !important;
+    max-width: 440px;
+  }
+
+  .ph1 h1 {
+    font-size: 1.3rem;
+  }
+
+  hr {
+    width: 88%;
+  }
+
+  .pp {
+    padding: 0 3rem;
+    font-size: 1.07rem;
+  }
+
+  .psum {
+    padding-left: 2rem;
+  }
+}

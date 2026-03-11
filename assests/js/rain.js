@@ -24,10 +24,10 @@ observer.observe(document.documentElement, {
 });
 
 // Apply saved theme on load
-const html = document.documentElement;
-if (localStorage.getItem('theme') === 'dark') {
-  html.classList.add('dark-theme');
-}
+// const html = document.documentElement;
+// if (localStorage.getItem('theme') === 'dark') {
+//   html.classList.add('dark-theme');
+// }
 
 document.addEventListener("DOMContentLoaded", () => {
   const scene = new THREE.Scene();
