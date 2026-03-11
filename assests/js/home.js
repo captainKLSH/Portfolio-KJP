@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function () {
 const titles = [
     "Data Scientist",
     "Data Analyst",
@@ -98,7 +99,6 @@ function animateTitle() {
 
 // Start animation
 animateTitle();
-document.addEventListener("DOMContentLoaded", function () {
     const aboutTitle = document.querySelector(".about__title");
 
     const observer = new IntersectionObserver(

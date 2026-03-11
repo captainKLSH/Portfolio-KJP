@@ -1,872 +1,827 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Resume</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiran Prasad JP · Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=Fraunces:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e17;
+    --surface: #111827;
+    --surface2: #1a2235;
+    --border: #1e2d45;
+    --accent: #ff385c;
+    --accent2: #00d4aa;
+    --accent3: #f59e0b;
+    --text: #e8edf5;
+    --muted: #6b7fa3;
+    --tag-bg: #162032;
+  }
 
-    <style>
-        :root {
-            /* DARK OCEAN THEME PALETTE */
-            --bg-main: #0a192f;
-            /* Deepest ocean blue (for fallback and overlay) */
-            --bg-card: rgba(17, 34, 64, 0.9);
-            /* Slightly lighter blue for elements, semi-transparent */
-            --text-primary: #ccd6f6;
-            /* Off-white for main text */
-            --text-secondary: #8892b0;
-            /* Muted blue-grey for subtitles */
-            --accent: #64ffda;
-            /* Bioluminescent Cyan/Teal for highlights */
-        }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background-color: var(--bg-main);
-            /* Fallback background color */
-            -webkit-font-smoothing: antialiased;
-            min-height: 100vh;
-            /* Ensure body takes full height for background */
-            position: relative;
-            /* For absolute positioning of background */
-        }
+  /* Grid noise overlay */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,56,92,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,56,92,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none; z-index: 0;
+  }
 
-        /* Deep Sea Background */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("../images/gr8shark.jpg");
-            /* Dynamic deep sea image */
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
-            /* Parallax-like effect */
-            filter: brightness(0.7);
-            /* Slightly dim the background */
-            z-index: -2;
-            /* Behind everything else */
-        }
+  /* ── LOGO ── */
+  .logo-container {
+    position: fixed;
+    top: 24px; left: 24px;
+    z-index: 100;
+    text-decoration: none;
+  }
+  .logo-img {
+    height: 52px; width: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid rgba(255,56,92,0.4);
+    transition: all 0.3s ease;
+  }
+  .logo-container:hover .logo-img {
+    box-shadow: 0 0 20px rgba(255,56,92,0.4);
+    transform: scale(1.04);
+  }
 
-        /* Dark Overlay for Readability */
-        body::after {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            /* Semi-transparent dark overlay */
-            z-index: -1;
-            /* Above background image, below content */
-        }
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 0 8vw;
+    overflow: hidden;
+  }
+  .hero-glow {
+    position: absolute;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,56,92,0.12) 0%, transparent 70%);
+    top: -200px; right: -200px;
+    animation: pulse 6s ease-in-out infinite;
+  }
+  .hero-glow2 {
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,212,170,0.08) 0%, transparent 70%);
+    bottom: -150px; left: 20%;
+    animation: pulse 8s ease-in-out infinite reverse;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+  }
 
-        /* --- NEW LOGO STYLES --- */
-        .logo-container {
-            position: fixed;
-            top: 20px;
-            left: 10px;
-            z-index: 100;
-            /* Ensure it sits above everything */
-            text-decoration: none;
-        }
+  .hero-content { position: relative; z-index: 1; max-width: 960px; }
 
-        .logo-img {
-            /* Adjust Logo Size Here */
-            height: 60px;
-            width: 140px;
-            /* --------------------- */
-            object-fit: cover;
-            /* Ensures image doesn't stretch */
-            border-radius: 25%;
-            /* Makes it circular */
-            border: 1px solid var(--accent);
-            /* Cyan border */
-            background-color: var(--bg-main);
-            /* Background if image is transparent */
-            transition: all 0.3s ease;
-        }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,56,92,0.1);
+    border: 1px solid rgba(255,56,92,0.3);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; color: var(--accent);
+    text-transform: uppercase; letter-spacing: 2px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s ease both;
+  }
+  .badge::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
+    animation: blink 2s ease infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-        .logo-container:hover .logo-img {
-            box-shadow: 0 0 25px rgba(100, 255, 218, 0.5);
-            /* Glowing effect */
-            transform: scale(1.05);
-            /* Slight zoom on hover */
-            border-color: #fff;
-        }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(42px, 7vw, 80px);
+    font-weight: 700;
+    line-height: 1.0;
+    margin-bottom: 16px;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
 
-        /* ----------------------- */
+  .hero-sub {
+    font-size: clamp(15px, 2vw, 18px);
+    color: var(--muted);
+    font-weight: 300;
+    max-width: 620px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
 
+  .hero-contact {
+    display: flex; gap: 20px; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.25s ease both;
+    margin-bottom: 36px;
+  }
+  .hero-contact a {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; color: var(--muted);
+    text-decoration: none; letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .hero-contact a:hover { color: var(--accent); border-color: var(--accent); }
 
-        /* Layout Utilities */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-            position: relative;
-            /* Ensure content is above overlays */
-            z-index: 1;
-        }
+  .hero-tags {
+    display: flex; gap: 10px; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.35s ease both;
+  }
+  .tag {
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; color: var(--muted);
+    transition: all 0.2s;
+  }
+  .tag:hover { border-color: var(--accent); color: var(--accent); }
+  .tag.hot { border-color: rgba(255,56,92,0.4); color: var(--accent); }
+  .tag.teal { border-color: rgba(0,212,170,0.4); color: var(--accent2); }
+  .tag.gold { border-color: rgba(245,158,11,0.4); color: var(--accent3); }
 
-        section {
-            margin-bottom: 4rem;
-        }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-        /* Header Section */
-        header {
-            text-align: center;
-            padding: 5rem 0 3rem;
-            background-color: rgba(10, 25, 47, 0.95);
-            /* Slightly less transparent header */
-            border-bottom: 1px solid rgba(29, 53, 87, 0.5);
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 1;
-        }
+  /* ── SECTIONS ── */
+  section {
+    position: relative; z-index: 1;
+    padding: 80px 8vw;
+  }
+  section:nth-child(even) { background: rgba(255,255,255,0.015); }
 
-        header h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-            letter-spacing: -1px;
-        }
+  .sec-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; color: var(--accent);
+    text-transform: uppercase; letter-spacing: 3px;
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .sec-label::after {
+    content: ''; flex: 0 0 40px; height: 1px;
+    background: var(--accent);
+  }
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700; line-height: 1.15;
+    margin-bottom: 48px;
+  }
+  h2 em { font-style: italic; color: var(--accent2); }
 
-        header .title {
-            font-size: 1.25rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
+  /* ── EXPERIENCE CARDS ── */
+  .exp-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .exp-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--card-accent, var(--accent));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .exp-card:hover::before { transform: scaleX(1); }
+  .exp-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--card-accent, var(--accent));
+    box-shadow: 0 12px 32px rgba(255,56,92,0.1);
+  }
 
-        header .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            font-size: 1rem;
-        }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .exp-org {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; color: var(--accent);
+    text-transform: uppercase; letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .exp-title {
+    font-family: 'Fraunces', serif;
+    font-size: 22px; font-weight: 700;
+    line-height: 1.2;
+  }
+  .exp-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; color: var(--muted);
+    white-space: nowrap;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 10px;
+    flex-shrink: 0;
+  }
 
-        header a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            padding-bottom: 5px;
-            border-bottom: 1px solid transparent;
-        }
+  .exp-bullets {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .exp-bullets li {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    padding-left: 20px;
+    position: relative;
+  }
+  .exp-bullets li::before {
+    content: '▹';
+    position: absolute; left: 0;
+    color: var(--card-accent, var(--accent));
+    font-size: 12px;
+    top: 3px;
+  }
+  .exp-bullets strong { color: var(--text); font-weight: 600; }
 
-        header a:hover {
-            color: var(--accent);
-            border-bottom: 1px solid var(--accent);
-        }
+  /* ── PROJECTS GRID ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+  }
 
-        /* Section Titles */
-        .section-title {
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            margin-bottom: 2rem;
-            font-weight: 700;
-        }
+  .proj-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    transition: all 0.3s;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .proj-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--card-accent, var(--accent2));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .proj-card:hover::before { transform: scaleX(1); }
+  .proj-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--card-accent, var(--accent2));
+  }
 
-        /* The line next to section titles */
-        .section-title::after {
-            content: "";
-            display: block;
-            height: 1px;
-            width: 300px;
-            background-color: rgba(29, 53, 87, 0.5);
-            /* Semi-transparent line */
-            margin-left: 20px;
-            flex-grow: 1;
-        }
+  .proj-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; color: var(--muted);
+    letter-spacing: 1px; margin-bottom: 12px;
+  }
+  .proj-title {
+    font-family: 'Fraunces', serif;
+    font-size: 18px; font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+  .proj-bullets {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 10px;
+    flex: 1;
+  }
+  .proj-bullets li {
+    font-size: 13px; color: var(--muted);
+    line-height: 1.65; padding-left: 18px;
+    position: relative;
+  }
+  .proj-bullets li::before {
+    content: '▹';
+    position: absolute; left: 0;
+    color: var(--card-accent, var(--accent2));
+    font-size: 11px; top: 3px;
+  }
+  .proj-bullets strong { color: var(--text); font-weight: 600; }
 
-        /* Cards (Experience & Projects) */
-        .card {
-            background-color: var(--bg-card);
-            /* Semi-transparent card background */
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
-            transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-            border: 1px solid transparent;
-        }
+  /* ── SKILLS SECTION ── */
+  .skills-top {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin-bottom: 56px;
+  }
+  .skill-pill {
+    background: rgba(0,212,170,0.08);
+    border: 1px solid rgba(0,212,170,0.25);
+    border-radius: 100px;
+    padding: 7px 18px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; color: var(--accent2);
+    transition: all 0.2s;
+  }
+  .skill-pill:hover {
+    background: rgba(0,212,170,0.15);
+    transform: translateY(-2px);
+  }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 30px -15px rgba(100, 255, 218, 0.15);
-            /* Slightly stronger glow */
-            border: 1px solid rgba(100, 255, 218, 0.3);
-        }
+  .skills-deep-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
+  .skill-cat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    transition: all 0.3s;
+  }
+  .skill-cat-card:hover {
+    border-color: var(--accent3);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(245,158,11,0.08);
+  }
+  .skill-cat-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; color: var(--accent3);
+    letter-spacing: 2px; margin-bottom: 12px;
+  }
+  .skill-cat-title {
+    font-family: 'Fraunces', serif;
+    font-size: 18px; font-weight: 700;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .skill-list li {
+    font-size: 13px; color: var(--muted);
+    line-height: 1.6; padding-left: 18px;
+    position: relative;
+  }
+  .skill-list li::before {
+    content: '▹';
+    position: absolute; left: 0;
+    color: var(--accent3);
+    font-size: 11px; top: 3px;
+  }
+  .skill-list strong { color: var(--text); font-weight: 600; }
 
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
+  /* Wide card for architectures */
+  .skill-cat-card.wide { grid-column: 1 / -1; }
+  .arch-subgrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 4px;
+  }
+  .arch-sub-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; color: var(--accent2);
+    text-transform: uppercase; letter-spacing: 2px;
+    margin-bottom: 10px;
+    display: block;
+  }
 
-        .card-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 5px;
-        }
+  /* ── FOOTER ── */
+  footer {
+    padding: 48px 8vw;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 20px;
+    position: relative; z-index: 1;
+  }
+  .footer-name {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+  }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; color: var(--muted);
+    text-decoration: none; letter-spacing: 1px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--accent); }
 
-        .card-subtitle {
-            font-size: 1rem;
-            color: var(--accent);
-            font-weight: 400;
-        }
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0; transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
 
-        .card-date {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            font-family: monospace;
-            white-space: nowrap;
-            margin-left: 20px;
-        }
-
-        ul {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        li {
-            margin-bottom: 0.8rem;
-            font-size: 1rem;
-            position: relative;
-            padding-left: 25px;
-            color: var(--text-secondary);
-        }
-
-        li::before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-size: 1.2rem;
-            line-height: 1.5rem;
-        }
-
-        strong {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        /* Skills Tag Cloud */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .skill-tag {
-            background-color: rgba(100, 255, 218, 0.1);
-            color: var(--accent);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border: 1px solid rgba(100, 255, 218, 0.2);
-            transition: all 0.2s ease;
-        }
-
-        .skill-tag:hover {
-            background-color: rgba(100, 255, 218, 0.2);
-            transform: translateY(-2px);
-        }
-
-        /* -- NEW STYLES FOR DETAILED SKILLS GRID -- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-card {
-            margin-bottom: 0;
-            /* Reset margin for grid items */
-            padding: 1.5rem;
-        }
-
-        .skill-category-title {
-            color: var(--text-primary);
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid rgba(100, 255, 218, 0.2);
-            padding-bottom: 0.5rem;
-        }
-
-        .detailed-list {
-            list-style: none;
-        }
-
-        .detailed-list li {
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        .detailed-list strong {
-            color: var(--accent);
-            display: inline-block;
-        }
-
-        .highlight-white {
-            color: #e6f1ff;
-            /* Bright white for category headers inside list */
-            font-weight: 700;
-            display: block;
-            margin-top: 10px;
-            margin-bottom: 5px;
-        }
-
-        /* Mobile Responsiveness Adjustments */
-        @media (max-width: 768px) {
-            .logo-container {
-                top: 15px;
-                left: 15px;
-            }
-
-            .container {
-                padding: 1rem;
-            }
-
-            header {
-                padding: 2rem 0 1.5rem;
-            }
-
-            header h1 {
-                font-size: 2rem;
-            }
-
-            header .title {
-                font-size: 1rem;
-            }
-
-            header .contact-info {
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .card {
-                padding: 1.2rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .card-header {
-                flex-direction: column;
-                align-items: flex-start;
-                /* Align items to the left on mobile */
-            }
-
-            .card-title {
-                font-size: 1.15rem;
-            }
-
-            .card-subtitle {
-                font-size: 0.9rem;
-            }
-
-            .card-date {
-                margin-left: 0;
-                margin-top: 8px;
-                margin-bottom: 8px;
-            }
-
-            .section-title {
-                font-size: 1.3rem;
-            }
-
-            .section-title::after {
-                width: 50%;
-                /* Adjusted line width for mobile */
-                margin-left: 10px;
-            }
-
-            li {
-                font-size: 0.9rem;
-                padding-left: 20px;
-            }
-
-            li::before {
-                font-size: 1rem;
-            }
-
-            .skill-tag {
-                font-size: 0.8rem;
-                padding: 6px 12px;
-            }
-        }
-    </style>
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero { padding: 0 6vw; min-height: auto; padding-top: 120px; padding-bottom: 80px; }
+    section { padding: 60px 6vw; }
+    .exp-header { flex-direction: column; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .skills-deep-grid { grid-template-columns: 1fr; }
+    .skill-cat-card.wide { grid-column: 1; }
+    footer { flex-direction: column; align-items: flex-start; }
+  }
+</style>
 </head>
-
 <body>
-    <a href="../../index.html" class="logo-container">
-        <img src="../images/Ki.gif" alt="KJP." class="logo-img">
-    </a>
 
-    <header>
-        <div class="container">
+<!-- LOGO -->
+<a href="../../index.html" class="logo-container">
+  <img src="../images/Ki.gif" alt="KJP." class="logo-img">
+</a>
 
-            <h1>Kiran Prasad Jamuna Prasad</h1>
-            <div class="title">Data Scientist | Application Developer</div>
-
-            <div class="contact-info">
-                <a href="https://www.linkedin.com/in/kiranprasadjp" target="_blank">LinkedIn</a>
-                <a href="https://github.com/captainKLSH" target="_blank">GitHub</a>
-                <a href="mailto:kjamunap@alumni.cmu.edu">Email</a>
-            </div>
-        </div>
-    </header>
-
-    <div class="container">
-
-        <section>
-            <h2 class="section-title">Technical Stack</h2>
-            <div class="skills-container">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">PyTorch</span>
-                <span class="skill-tag">Flutter</span>
-                <span class="skill-tag">GCP</span>
-                <span class="skill-tag">AWS</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">LangChain</span>
-                <span class="skill-tag">Hugging Face</span>
-                <span class="skill-tag">Pandas</span>
-                <span class="skill-tag">MLflow</span>
-                <span class="skill-tag">Hypothesis Testing</span>
-            </div>
-        </section>
-
-        <section>
-            <h2 class="section-title">Work Experience</h2>
-
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        <div class="card-title">Carnegie Mellon University</div>
-                        <div class="card-subtitle">Data Scientist | Application Developer</div>
-                    </div>
-                    <div class="card-date">May 2025 – Current</div>
-                </div>
-                <ul>
-                    <li>Eliminated proxy attendance and automated certificate eligibility by developing a
-                        privacy-centric <strong>Flutter application</strong> that utilizes client-side
-                        <strong>Geofencing</strong> and QR/6-digit code validation.
-                    </li>
-                    <li>Achieved 35% faster check-in times and reduced false-negative rejections by 12% by conducting
-                        <strong>A/B testing</strong> on validation latency and calibrating geofence radius using
-                        <strong>Firebase Remote Config</strong> and <strong>Hypothesis Testing</strong>.
-                    </li>
-                    <li>Neutralized GPS spoofing and secured data integrity by engineering spatial outlier detection
-                        algorithms within <strong>ETL pipelines</strong> to flag location anomalies without collecting
-                        raw user coordinates.</li>
-                    <li>Enabled secure, scalable institutional access by architecting a hybrid backend ecosystem using
-                        <strong>GCP, Firestore, and SQL</strong>, integrated with <strong>Federated Authentication (SAML
-                            SSO)</strong>.
-                    </li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        <div class="card-title">Carnegie Mellon University</div>
-                        <div class="card-subtitle">Data Scientist</div>
-                    </div>
-                    <div class="card-date">Jan 2025 – May 2025</div>
-                </div>
-                <ul>
-                    <li>Eliminated manual data entry bottlenecks and reduced processing lag by 40%, achieved by
-                        engineering an <strong>automated ETL pipeline</strong> to synchronize high-volume key
-                        check-in/check-out datasets.</li>
-                    <li>Restored data integrity and recovered 18% of incomplete records through <strong>data
-                            wrangling</strong>, utilizing <strong>temporal correlation</strong> algorithms to impute
-                        missing User IDs and transforming unstructured raw logs into structured, schema-enforced formats
-                        using <strong>Pandas DataFrames</strong>.</li>
-                    <li>Secured <strong>95% data cleanliness</strong> and enabled reliable <strong>downstream predictive
-                            analytics</strong> by establishing a rigorous Data Quality Framework to filter noise and
-                        validate raw inputs.</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        <div class="card-title">Graduate Researcher | Guide: Prof Chrysanthos Gounaris</div>
-                        <div class="card-subtitle">Collaboration with Linde Inc.</div>
-                    </div>
-                    <div class="card-date">Nov 2023 – Dec 2024</div>
-                </div>
-                <ul>
-                    <li>Drove a 10% operational efficiency gain for Linde Inc. by engineering a <strong>Graph Attention
-                            Network (GAT)</strong> and Deep Reinforcement Learning framework in PyTorch to optimize
-                        large-scale logistics, outperforming traditional solvers (Google OR-Tools, DQN).</li>
-                    <li>Achieved <strong>62% routing efficiency</strong> and optimized inference latency on
-                        high-dimensional graphs by implementing an <strong>Encoder-Decoder</strong> architecture,
-                        utilizing <strong>Multi-Head Attention</strong> and <strong>Dynamic Node Embeddings</strong> to
-                        capture complex spatial dependencies.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2 class="section-title">Research & Projects</h2>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">End-to-End Agentic AI Trip Planner</div>
-                    <div class="card-date">July 2025 – Oct 2025</div>
-                </div>
-                <ul>
-                    <li>Automated complex itinerary generation and real-time decision making by engineering an
-                        autonomous <strong>Agentic AI workflow</strong> in LangChain, orchestrating dynamic tool usage
-                        <strong>(Google Places, OpenWeather, FAST APIs)</strong> for
-                        live weather, currency, and location data.</li>
-                    <li>Ensured production-grade code quality and maintainability by architecting a modular
-                        <strong>MLOps</strong>
-                        framework in <strong>Python 3.12</strong>, implementing custom logging, robust exception
-                        handling, and
-                        high-performance dependency resolution via uv</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Predictive Fault Diagnosis using Long-Short Term Memory</div>
-                    <div class="card-date">Nov 2024 – June 2025</div>
-                </div>
-                <ul>
-                    <li>Enabled real-time <strong>predictive diagnosis</strong> with 98.35% accuracy and a <strong>0.98
-                            F1-score</strong> by engineering a multi-layered <strong>Long Short-Term Memory
-                            (LSTM)</strong> network to capture complex temporal dependencies in <strong>time-series
-                            sensor data</strong>.</li>
-                    <li>Overcame data scarcity and ensured less than 2% misclassification between critical fault types
-                        by simulating industrial batch reactor signals using mathematical modeling in Python and
-                        implementing <strong>sliding-window sequences</strong> for <strong>feature extraction</strong>.
-                    </li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Semantically Aware Book Recommender System</div>
-                    <div class="card-date">Feb 2025 – April 2025</div>
-                </div>
-                <ul>
-                    <li>Engineered a semantic search recommendation engine capable of retrieving contextually relevant
-                        titles by leveraging <strong>LangChain</strong> for text chunking and building a <strong>Hugging
-                            Face</strong> vector database.</li>
-                    <li>Restored dataset integrity and <strong>achieved 78% accuracy</strong> in imputing missing
-                        metadata by deploying a <strong>Zero-Shot Classification model (BART-large-mnli)</strong>,
-                        utilizing <strong>Seaborn heatmaps</strong> and <strong>DistilROBERTa</strong> for
-                        sentiment-aware filtering.</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">End-to-End MLOps Pipeline for Chest Cancer Detection</div>
-                    <div class="card-date">Nov 2024 – Feb 2025</div>
-                </div>
-                <ul>
-                    <li>Attained 56% diagnostic accuracy in <strong>chest cancer classification</strong> by engineering
-                        a Transfer Learning workflow using <strong>VGG16</strong>, leveraging <strong>MLflow</strong> to
-                        manage experiment tracking.</li>
-                    <li>Enabled scalable, reproducible <strong>model deployment on AWS</strong> by architecting a
-                        containerized CI/CD pipeline, pushing <strong>Docker</strong> images to <strong>ECR</strong> and
-                        orchestrating inference on <strong>EC2 instances</strong>.</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Generative AI with Denoising Diffusion Probabilistic Models</div>
-                    <div class="card-date">April 2024 – July 2024</div>
-                </div>
-                <ul>
-                    <li>Synthesized high-fidelity image samples from pure Gaussian noise by implementing a
-                        <strong>Denoising Diffusion Probabilistic Model (DDPM)</strong> from scratch in
-                        <strong>PyTorch</strong>, utilizing a <strong>U-Net architecture</strong>.
-                    </li>
-                    <li>Optimized generative stability by engineering a custom noise variance schedule (beta) and
-                        <strong>Markov chain</strong> pipeline.
-                    </li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Solving Physics with Transformers</div>
-                    <div class="card-date">March 2024 – July 2024</div>
-                </div>
-                <ul>
-                    <li>Accelerated complex physics simulations by 45% by adapting <strong>Transformer architectures
-                            (GPT)</strong> to solve time-dependent Partial Differential Equations (PDEs).</li>
-                    <li>Achieved high-fidelity forecasting of continuous physical systems by engineering a custom
-                        <strong>PyTorch model</strong> with <strong>continuous value embeddings</strong>, replacing
-                        standard NLP tokenization.
-                    </li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Framework for Stress-Testing Autonomous Vehicle Stacks</div>
-                    <div class="card-date">Feb 2024 – June 2024</div>
-                </div>
-                <ul>
-                    <li>Optimized autonomous agent robustness in safety-critical scenarios by training a <strong>Soft
-                            Actor-Critic (SAC)</strong> Reinforcement Learning model within the <strong>CARLA/SafeBench
-                            simulator</strong>.</li>
-                    <li>Benchmarked object detection reliability across <strong>IoU thresholds (0.5–0.9)</strong> by
-                        engineering a comparative evaluation pipeline for <strong>YOLOv5</strong> and <strong>Faster
-                            R-CNN</strong> models, deployed on GPU-accelerated <strong>AWS EC2</strong> instances.</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Adversarial Attack Simulation & CNN Interpretation</div>
-                    <div class="card-date">Jan 2024 – June 2024</div>
-                </div>
-                <ul>
-                    <li>Quantified deep learning vulnerability by engineering targeted <strong>Adversarial Attacks (FGM,
-                            PGD)</strong> on <strong>ResNet-18</strong> and estimating misclassification rates via
-                        <strong>Monte Carlo simulations</strong>.
-                    </li>
-                    <li>Decoded "black-box" decision logic by generating <strong>Saliency Maps</strong> and Maximal
-                        Activation visualizations (FlashTorch) in <strong>CNN architectures (AlexNet)</strong>.</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Concept Trend Analyzer API</div>
-                    <div class="card-date">March 2024 – May 2024</div>
-                </div>
-                <ul>
-                    <li>Facilitated longitudinal analysis of scholarly trends over a 10-year period by engineering a
-                        high-performance Python interface for the <strong>OpenAlex API</strong>, utilizing
-                        <strong>RESTful design</strong>.
-                    </li>
-                    <li>Ensured <strong>100% data retrieval accuracy</strong> and codebase maintainability by enforcing
-                        rigorous software engineering standards, including <strong>Git version control</strong> and
-                        strict linting (Black/Flake8).</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Generative Design of Airfoils (VAE vs. GAN)</div>
-                    <div class="card-date">March 2024 – May 2024</div>
-                </div>
-                <ul>
-                    <li>Accelerated the design of aerodynamic geometries by engineering <strong>Variational Autoencoders
-                            (VAE)</strong> and <strong>Generative Adversarial Networks (GAN)</strong> in
-                        <strong>PyTorch</strong> to synthesize valid airfoil profiles.
-                    </li>
-                    <li>Quantified the trade-off between geometric continuity and design diversity by conducting a
-                        comparative analysis of <strong>ELBO optimization</strong> versus Adversarial Zero-Sum Training.
-                    </li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Synthetic Image Generation with DCGANs</div>
-                    <div class="card-date">March 2024 – May 2024</div>
-                </div>
-                <ul>
-                    <li>Synthesized high-fidelity 64x64 RGB images by engineering a <strong>Deep Convolutional GAN
-                            (DCGAN)</strong>, utilizing Transposed Convolutions (Generator) and Strided Convolutions
-                        (Discriminator).</li>
-                    <li>Mitigated mode collapse and stabilized adversarial convergence by implementing <strong>Batch
-                            Normalization</strong> layers and custom weight initialization protocols.</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">CIFAR-10 Image Classification Engine</div>
-                    <div class="card-date">Jan 2024 – March 2024</div>
-                </div>
-                <ul>
-                    <li>Achieved <strong>~ 83% test accuracy</strong> in multi-class image classification by engineering
-                        a custom <strong>CNN architecture</strong> in <strong>PyTorch</strong>.</li>
-                    <li>Enhanced model generalization and outperformed Adam optimizer baselines by 3% by executing
-                        rigorous <strong>hyperparameter tuning</strong> and calibrating <strong>Stochastic Gradient
-                            Descent (SGD)</strong>.</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">EDA of Plastic Waste Using K-Means Clustering</div>
-                    <div class="card-date">Jan 2024 – Feb 2024</div>
-                </div>
-                <ul>
-                    <li>Identified high-leverage targets for environmental intervention by executing <strong>K-Means
-                            clustering</strong> on global waste data, segmenting 194 countries into 3 distinct cohorts.
-                    </li>
-                    <li>Translated complex multivariate patterns into actionable strategic insights by utilizing
-                        <strong>Plotly</strong> for interactive geospatial mapping and <strong>Seaborn</strong> for
-                        correlation analysis.
-                    </li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Machine Learning Modeling on MQTT Dataset</div>
-                    <div class="card-date">Sept 2023 – Dec 2023</div>
-                </div>
-                <ul>
-                    <li>Achieved <strong>92.3% accuracy</strong> in predicting cyber-attack vectors by engineering deep
-                        learning models built in <strong>PySpark and PyTorch</strong>, utilizing <strong>Docker and
-                            Kubernetes</strong> for scalability.</li>
-                    <li>Enabled real-time trend analysis on high-volume datasets by architecting a robust ingestion
-                        pipeline using <strong>PostgreSQL</strong> for MQTT protocols.</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Model-Based Reinforcement Learning for Autonomous Parking</div>
-                    <div class="card-date">Oct 2023 – Dec 2023</div>
-                </div>
-                <ul>
-                    <li>Engineered a <strong>autonomous parking agent</strong> by developing a Model-Based Reinforcement
-                        Learning (MBRL) framework, utilizing <strong>GPyTorch (Gaussian Processes)</strong> to model
-                        vehicle dynamics with quantified uncertainty.</li>
-                    <li>Optimized trajectory planning and collision avoidance in the <code>highway-env</code> simulator
-                        by implementing a <strong>PyTorch</strong>-based "Mental Simulator" that predicts future states
-                        to control continuous variables (steering, throttle) for precise alignment.</li>
-                </ul>
-            </div>
-        </section>
-        <section>
-            <h2 class="section-title">Detailed Technical Proficiency</h2>
-            <div class="skills-grid">
-
-                <div class="card skill-card">
-                    <div class="skill-category-title">1. Programming Languages</div>
-                    <ul class="detailed-list">
-                        <li><strong>Python:</strong> Primary language used for all ML/DL modeling, API development, and
-                            scripting.</li>
-                        <li><strong>SQL:</strong> Used for querying and schema design (PostgreSQL).</li>
-                        <li><strong>Dart:</strong> Used for mobile application development (Flutter).</li>
-                    </ul>
-                </div>
-
-                <div class="card skill-card">
-                    <div class="skill-category-title">2. ML & Deep Learning Frameworks</div>
-                    <ul class="detailed-list">
-                        <li><strong>Core DL:</strong> PyTorch (Extensive usage), GPyTorch (Gaussian Processes), PySpark
-                            (Big Data ML).</li>
-                        <li><strong>LLM & NLP:</strong> LangChain (Orchestration), Hugging Face (Vector DBs &
-                            Embeddings), FlashTorch (Interpretability).</li>
-                        <li><strong>Optimization:</strong> OR-Tools (Google's optimization suite).</li>
-                        <li><strong>Tracking & MLOps:</strong> MLflow.</li>
-                    </ul>
-                </div>
-
-                <div class="card skill-card">
-                    <div class="skill-category-title">3. Data Analysis & Stats</div>
-                    <ul class="detailed-list">
-                        <li><strong>Libraries:</strong> Pandas (DataFrames), NumPy.</li>
-                        <li><strong>Visualization:</strong> Seaborn (Heatmaps, Correlation analysis), Plotly
-                            (Interactive geospatial mapping).</li>
-                        <li><strong>Statistical Methods:</strong> A/B Testing, Hypothesis Testing, Monte Carlo
-                            Simulations, Temporal Correlation.</li>
-                    </ul>
-                </div>
-
-                <div class="card skill-card">
-                    <div class="skill-category-title">4. Cloud, DevOps & Engineering</div>
-                    <ul class="detailed-list">
-                        <li><strong>Cloud Providers:</strong> AWS (EC2, ECR), Google Cloud Platform (GCP, Firestore),
-                            Firebase (Remote Config, Auth).</li>
-                        <li><strong>Containerization:</strong> Docker, Kubernetes.</li>
-                        <li><strong>Pipelines:</strong> CI/CD, ETL (Extract, Transform, Load), MQTT Protocols.</li>
-                        <li><strong>Engineering Standards:</strong> Git, RESTful API Design, Linting (Black/Flake8).
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="card skill-card" style="grid-column: 1 / -1;">
-                    <div class="skill-category-title">5. Architectures & Algorithms (Applied Skills)</div>
-                    <ul class="detailed-list"
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-
-                        <div>
-                            <span class="highlight-white">Generative AI</span>
-                            <li><strong>GANs:</strong> DCGAN (Deep Convolutional), Adversarial Zero-Sum Training.</li>
-                            <li><strong>Diffusion:</strong> DDPM (Denoising Diffusion Probabilistic Models), U-Net
-                                architectures.</li>
-                            <li><strong>VAEs:</strong> Variational Autoencoders, ELBO optimization.</li>
-                        </div>
-
-                        <div>
-                            <span class="highlight-white">Reinforcement Learning (RL)</span>
-                            <li>Deep Reinforcement Learning (DRL).</li>
-                            <li>Soft Actor-Critic (SAC).</li>
-                            <li>Model-Based RL (MBRL).</li>
-                            <li>Policy Gradient Methods.</li>
-                        </div>
-
-                        <div>
-                            <span class="highlight-white">Computer Vision</span>
-                            <li><strong>Architectures:</strong> ResNet-18, VGG16, AlexNet, YOLOv5, Faster R-CNN.</li>
-                            <li><strong>Techniques:</strong> Transfer Learning, Saliency Maps.</li>
-                        </div>
-
-                        <div>
-                            <span class="highlight-white">Transformers & NLP</span>
-                            <li>GPT, BERT, BART, DistilRoBERTa.</li>
-                            <li>Multi-Head Attention, Embeddings, Vector Databases.</li>
-                        </div>
-
-                        <div>
-                            <span class="highlight-white">Graph & Time-Series</span>
-                            <li>GAT (Graph Attention Networks).</li>
-                            <li>LSTM (Long Short-Term Memory).</li>
-                        </div>
-
-                        <div>
-                            <span class="highlight-white">Robustness & Security</span>
-                            <li>Adversarial Attacks (FGM, PGD).</li>
-                            <li>Spatial Outlier Detection.</li>
-                        </div>
-                    </ul>
-                </div>
-
-            </div>
-        </section>
-
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="badge">Data Scientist · Application Developer</div>
+    <h1>Kiran Prasad<br><em>Jamuna Prasad</em></h1>
+    <p class="hero-sub">Building intelligent systems at the intersection of deep learning, distributed data engineering, and production-grade MLOps — from PyTorch model architectures to cloud-native deployment pipelines.</p>
+    <div class="hero-contact">
+      <a href="https://www.linkedin.com/in/kiranprasadjp" target="_blank">LinkedIn ↗</a>
+      <a href="https://github.com/captainKLSH" target="_blank">GitHub ↗</a>
+      <a href="mailto:kjamunap@alumni.cmu.edu">Email ↗</a>
     </div>
-</body>
+    <div class="hero-tags">
+      <span class="tag hot">Python</span>
+      <span class="tag hot">PyTorch</span>
+      <span class="tag hot">GCP</span>
+      <span class="tag hot">AWS</span>
+      <span class="tag teal">LangChain</span>
+      <span class="tag teal">Hugging Face</span>
+      <span class="tag teal">Flutter</span>
+      <span class="tag gold">Docker</span>
+      <span class="tag gold">MLflow</span>
+      <span class="tag gold">SQL</span>
+      <span class="tag">Pandas</span>
+      <span class="tag">Hypothesis Testing</span>
+    </div>
+  </div>
+</section>
 
+<!-- WORK EXPERIENCE -->
+<section>
+  <div class="sec-label">Work Experience</div>
+  <h2>Where I've <em>Built</em></h2>
+
+  <div class="exp-card reveal" style="--card-accent: #ff385c">
+    <div class="exp-header">
+      <div>
+        <div class="exp-org">Carnegie Mellon University</div>
+        <div class="exp-title">Data Scientist · Application Developer</div>
+      </div>
+      <div class="exp-date">May 2025 – Current</div>
+    </div>
+    <ul class="exp-bullets">
+      <li>Eliminated proxy attendance and automated certificate eligibility by developing a privacy-centric <strong>Flutter application</strong> utilizing client-side <strong>Geofencing</strong> and QR/6-digit code validation.</li>
+      <li>Achieved 35% faster check-in times and reduced false-negative rejections by 12% via <strong>A/B testing</strong> on validation latency, calibrating geofence radius using <strong>Firebase Remote Config</strong> and <strong>Hypothesis Testing</strong>.</li>
+      <li>Neutralized GPS spoofing by engineering spatial outlier detection algorithms within <strong>ETL pipelines</strong> to flag location anomalies without collecting raw user coordinates.</li>
+      <li>Enabled secure, scalable institutional access by architecting a hybrid backend using <strong>GCP, Firestore, and SQL</strong> integrated with <strong>Federated Authentication (SAML SSO)</strong>.</li>
+    </ul>
+  </div>
+
+  <div class="exp-card reveal reveal-delay-1" style="--card-accent: #00d4aa">
+    <div class="exp-header">
+      <div>
+        <div class="exp-org">Carnegie Mellon University</div>
+        <div class="exp-title">Data Scientist</div>
+      </div>
+      <div class="exp-date">Jan 2025 – May 2025</div>
+    </div>
+    <ul class="exp-bullets">
+      <li>Eliminated manual data entry bottlenecks and reduced processing lag by 40% by engineering an <strong>automated ETL pipeline</strong> to synchronize high-volume key check-in/check-out datasets.</li>
+      <li>Restored data integrity and recovered 18% of incomplete records through <strong>data wrangling</strong>, using <strong>temporal correlation</strong> algorithms to impute missing User IDs via <strong>Pandas DataFrames</strong>.</li>
+      <li>Secured <strong>95% data cleanliness</strong> and enabled reliable <strong>downstream predictive analytics</strong> by establishing a rigorous Data Quality Framework.</li>
+    </ul>
+  </div>
+
+  <div class="exp-card reveal reveal-delay-2" style="--card-accent: #f59e0b">
+    <div class="exp-header">
+      <div>
+        <div class="exp-org">Linde Inc. · Prof Chrysanthos Gounaris</div>
+        <div class="exp-title">Graduate Researcher</div>
+      </div>
+      <div class="exp-date">Nov 2023 – Dec 2024</div>
+    </div>
+    <ul class="exp-bullets">
+      <li>Drove a 10% operational efficiency gain by engineering a <strong>Graph Attention Network (GAT)</strong> and Deep Reinforcement Learning framework in PyTorch to optimize large-scale logistics, outperforming Google OR-Tools and DQN.</li>
+      <li>Achieved <strong>62% routing efficiency</strong> by implementing an <strong>Encoder-Decoder</strong> architecture utilizing <strong>Multi-Head Attention</strong> and <strong>Dynamic Node Embeddings</strong> to capture complex spatial dependencies.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- RESEARCH & PROJECTS -->
+<section>
+  <div class="sec-label">Research &amp; Projects</div>
+  <h2>What I've <em>Engineered</em></h2>
+  <div class="projects-grid">
+
+    <div class="proj-card reveal" style="--card-accent: #ff385c">
+      <div class="proj-date">JULY 2025 – OCT 2025</div>
+      <div class="proj-title">End-to-End Agentic AI Trip Planner</div>
+      <ul class="proj-bullets">
+        <li>Automated complex itinerary generation by engineering an autonomous <strong>Agentic AI workflow</strong> in LangChain, orchestrating dynamic tool usage <strong>(Google Places, OpenWeather, FAST APIs)</strong>.</li>
+        <li>Architected a modular <strong>MLOps</strong> framework in <strong>Python 3.12</strong> with custom logging, robust exception handling, and high-performance dependency resolution via uv.</li>
+      </ul>
+    </div>
+
+    <div class="proj-card reveal reveal-delay-1" style="--card-accent: #00d4aa">
+      <div class="proj-date">NOV 2024 – JUNE 2025</div>
+      <div class="proj-title">Predictive Fault Diagnosis using LSTM</div>
+      <ul class="proj-bullets">
+        <li>Enabled real-time <strong>predictive diagnosis</strong> with 98.35% accuracy and <strong>0.98 F1-score</strong> via a multi-layered <strong>LSTM</strong> network capturing temporal dependencies in <strong>time-series sensor data</strong>.</li>
+        <li>Overcame data scarcity by simulating industrial batch reactor signals using mathematical modeling and <strong>sliding-window sequences</strong> for <strong>feature extraction</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="proj-card reveal reveal-delay-2" style="--card-accent: #f59e0b">
+      <div class="proj-date">FEB 2025 – APRIL 2025</div>
+      <div class="proj-title">Semantically Aware Book Recommender</div>
+      <ul class="proj-bullets">
+        <li>Engineered a semantic search engine using <strong>LangChain</strong> for text chunking and a <strong>Hugging Face</strong> vector database for contextually relevant retrieval.</li>
+        <li>Achieved <strong>78% accuracy</strong> imputing missing metadata via a <strong>Zero-Shot Classification model (BART-large-mnli)</strong> with <strong>DistilROBERTa</strong> sentiment-aware filtering.</li>
+      </ul>
+    </div>
+
+    <div class="proj-card reveal" style="--card-accent: #a78bfa">
+      <div class="proj-date">NOV 2024 – FEB 2025</div>
+      <div class="proj-title">End-to-End MLOps Pipeline · Chest Cancer Detection</div>
+      <ul class="proj-bullets">
+        <li>Attained 56% diagnostic accuracy using <strong>Transfer Learning (VGG16)</strong> with <strong>MLflow</strong> for experiment tracking and reproducibility.</li>
+        <li>Enabled scalable <strong>model deployment on AWS</strong> via a containerized CI/CD pipeline: <strong>Docker</strong> images pushed to <strong>ECR</strong>, orchestrated on <strong>EC2</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="proj-card reveal reveal-delay-1" style="--card-accent: #ff385c">
+      <div class="proj-date">APRIL 2024 – JULY 2024</div>
+      <div class="proj-title">Generative AI with Denoising Diffusion Probabilistic Models</div>
+      <ul class="proj-bullets">
+        <li>Synthesized high-fidelity images from pure Gaussian noise by implementing a <strong>DDPM</strong> from scratch in <strong>PyTorch</strong> with a <strong>U-Net architecture</strong>.</li>
+        <li>Optimized generative stability by engineering a custom noise variance schedule (beta) and <strong>Markov chain</strong> pipeline.</li>
+      </ul>
+    </div>
+
+    <div class="proj-card reveal reveal-delay-2" style="--card-accent: #00d4aa">
+      <div class="proj-date">MARCH 2024 – JULY 2024</div>
+      <div class="proj-title">Solving Physics with Transformers</div>
+      <ul class="proj-bullets">
+        <li>Accelerated complex physics simulations by 45% by adapting <strong>Transformer architectures (GPT)</strong> to solve time-dependent Partial Differential Equations.</li>
+        <li>Achieved high-fidelity forecasting via a custom <strong>PyTorch model</strong> with <strong>continuous value embeddings</strong>, replacing standard NLP tokenization.</li>
+      </ul>
+    </div>
+
+    <div class="proj-card reveal" style="--card-accent: #f59e0b">
+      <div class="proj-date">FEB 2024 – JUNE 2024</div>
+      <div class="proj-title">Framework for Stress-Testing Autonomous Vehicle Stacks</div>
+      <ul class="proj-bullets">
+        <li>Trained a <strong>Soft Actor-Critic (SAC)</strong> RL model within the <strong>CARLA/SafeBench</strong> simulator to optimize agent robustness in safety-critical scenarios.</li>
+        <li>Benchmarked object detection across <strong>IoU thresholds (0.5–0.9)</strong> with <strong>YOLOv5</strong> and <strong>Faster R-CNN</strong> on GPU-accelerated <strong>AWS EC2</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="proj-card reveal reveal-delay-1" style="--card-accent: #a78bfa">
+      <div class="proj-date">JAN 2024 – JUNE 2024</div>
+      <div class="proj-title">Adversarial Attack Simulation &amp; CNN Interpretation</div>
+      <ul class="proj-bullets">
+        <li>Quantified deep learning vulnerability via targeted <strong>Adversarial Attacks (FGM, PGD)</strong> on <strong>ResNet-18</strong> and misclassification estimation via <strong>Monte Carlo simulations</strong>.</li>
+        <li>Decoded black-box decision logic by generating <strong>Saliency Maps</strong> and Maximal Activation visualizations (FlashTorch) in <strong>CNN architectures (AlexNet)</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="proj-card reveal" style="--card-accent: #00d4aa">
+      <div class="proj-date">MARCH 2024 – MAY 2024</div>
+      <div class="proj-title">Concept Trend Analyzer API</div>
+      <ul class="proj-bullets">
+        <li>Facilitated longitudinal analysis of scholarly trends over 10 years via a high-performance Python interface for the <strong>OpenAlex API</strong> using <strong>RESTful design</strong>.</li>
+        <li>Ensured <strong>100% data retrieval accuracy</strong> with <strong>Git version control</strong> and strict linting (Black/Flake8).</li>
+      </ul>
+    </div>
+
+    <div class="proj-card reveal reveal-delay-1" style="--card-accent: #ff385c">
+      <div class="proj-date">MARCH 2024 – MAY 2024</div>
+      <div class="proj-title">Generative Design of Airfoils (VAE vs. GAN)</div>
+      <ul class="proj-bullets">
+        <li>Engineered <strong>VAEs</strong> and <strong>GANs</strong> in <strong>PyTorch</strong> to synthesize valid aerodynamic airfoil profiles.</li>
+        <li>Conducted a comparative analysis of <strong>ELBO optimization</strong> versus Adversarial Zero-Sum Training for geometric continuity vs. diversity trade-offs.</li>
+      </ul>
+    </div>
+
+    <div class="proj-card reveal reveal-delay-2" style="--card-accent: #f59e0b">
+      <div class="proj-date">MARCH 2024 – MAY 2024</div>
+      <div class="proj-title">Synthetic Image Generation with DCGANs</div>
+      <ul class="proj-bullets">
+        <li>Synthesized high-fidelity 64×64 RGB images via a <strong>Deep Convolutional GAN (DCGAN)</strong> using Transposed Convolutions (Generator) and Strided Convolutions (Discriminator).</li>
+        <li>Mitigated mode collapse with <strong>Batch Normalization</strong> layers and custom weight initialization protocols.</li>
+      </ul>
+    </div>
+
+    <div class="proj-card reveal" style="--card-accent: #a78bfa">
+      <div class="proj-date">JAN 2024 – MARCH 2024</div>
+      <div class="proj-title">CIFAR-10 Image Classification Engine</div>
+      <ul class="proj-bullets">
+        <li>Achieved <strong>~83% test accuracy</strong> in multi-class image classification via a custom <strong>CNN architecture</strong> in <strong>PyTorch</strong>.</li>
+        <li>Outperformed Adam optimizer baselines by 3% through rigorous <strong>hyperparameter tuning</strong> and calibrated <strong>SGD</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="proj-card reveal reveal-delay-1" style="--card-accent: #00d4aa">
+      <div class="proj-date">JAN 2024 – FEB 2024</div>
+      <div class="proj-title">EDA of Plastic Waste · K-Means Clustering</div>
+      <ul class="proj-bullets">
+        <li>Segmented 194 countries into 3 distinct cohorts via <strong>K-Means clustering</strong> on global waste data to identify high-leverage environmental intervention targets.</li>
+        <li>Translated multivariate patterns into actionable insights using <strong>Plotly</strong> geospatial mapping and <strong>Seaborn</strong> correlation analysis.</li>
+      </ul>
+    </div>
+
+    <div class="proj-card reveal reveal-delay-2" style="--card-accent: #ff385c">
+      <div class="proj-date">SEPT 2023 – DEC 2023</div>
+      <div class="proj-title">ML Modeling on MQTT Dataset</div>
+      <ul class="proj-bullets">
+        <li>Achieved <strong>92.3% accuracy</strong> predicting cyber-attack vectors via deep learning models built in <strong>PySpark and PyTorch</strong>, using <strong>Docker and Kubernetes</strong> for scalability.</li>
+        <li>Architected a robust ingestion pipeline using <strong>PostgreSQL</strong> for real-time trend analysis on high-volume MQTT datasets.</li>
+      </ul>
+    </div>
+
+    <div class="proj-card reveal" style="--card-accent: #f59e0b">
+      <div class="proj-date">OCT 2023 – DEC 2023</div>
+      <div class="proj-title">Model-Based RL for Autonomous Parking</div>
+      <ul class="proj-bullets">
+        <li>Engineered an autonomous parking agent via a <strong>Model-Based RL (MBRL)</strong> framework, using <strong>GPyTorch (Gaussian Processes)</strong> to model vehicle dynamics with quantified uncertainty.</li>
+        <li>Implemented a <strong>PyTorch</strong>-based "Mental Simulator" for trajectory planning and collision avoidance in the <code>highway-env</code> simulator.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- TECHNICAL SKILLS -->
+<section>
+  <div class="sec-label">Technical Proficiency</div>
+  <h2>The <em>Stack</em></h2>
+
+  <div class="skills-top">
+    <span class="skill-pill">Python</span>
+    <span class="skill-pill">PyTorch</span>
+    <span class="skill-pill">Flutter / Dart</span>
+    <span class="skill-pill">GCP</span>
+    <span class="skill-pill">AWS</span>
+    <span class="skill-pill">Docker</span>
+    <span class="skill-pill">SQL · PostgreSQL</span>
+    <span class="skill-pill">LangChain</span>
+    <span class="skill-pill">Hugging Face</span>
+    <span class="skill-pill">Pandas · NumPy</span>
+    <span class="skill-pill">MLflow</span>
+    <span class="skill-pill">Hypothesis Testing</span>
+  </div>
+
+  <div class="skills-deep-grid">
+
+    <div class="skill-cat-card reveal">
+      <div class="skill-cat-num">01 · LANGUAGES</div>
+      <div class="skill-cat-title">Programming Languages</div>
+      <ul class="skill-list">
+        <li><strong>Python:</strong> Primary language for all ML/DL modeling, API development, and scripting.</li>
+        <li><strong>SQL:</strong> Schema design and querying (PostgreSQL).</li>
+        <li><strong>Dart:</strong> Mobile application development (Flutter).</li>
+      </ul>
+    </div>
+
+    <div class="skill-cat-card reveal reveal-delay-1">
+      <div class="skill-cat-num">02 · ML & DL</div>
+      <div class="skill-cat-title">ML & Deep Learning Frameworks</div>
+      <ul class="skill-list">
+        <li><strong>Core DL:</strong> PyTorch (extensive), GPyTorch (Gaussian Processes), PySpark (Big Data ML).</li>
+        <li><strong>LLM & NLP:</strong> LangChain (orchestration), Hugging Face (vector DBs & embeddings), FlashTorch.</li>
+        <li><strong>Optimization:</strong> OR-Tools (Google's optimization suite).</li>
+        <li><strong>Tracking & MLOps:</strong> MLflow.</li>
+      </ul>
+    </div>
+
+    <div class="skill-cat-card reveal reveal-delay-2">
+      <div class="skill-cat-num">03 · DATA</div>
+      <div class="skill-cat-title">Data Analysis & Statistics</div>
+      <ul class="skill-list">
+        <li><strong>Libraries:</strong> Pandas (DataFrames), NumPy.</li>
+        <li><strong>Visualization:</strong> Seaborn (heatmaps, correlation), Plotly (interactive geospatial).</li>
+        <li><strong>Statistical Methods:</strong> A/B Testing, Hypothesis Testing, Monte Carlo Simulations, Temporal Correlation.</li>
+      </ul>
+    </div>
+
+    <div class="skill-cat-card reveal">
+      <div class="skill-cat-num">04 · CLOUD & DEVOPS</div>
+      <div class="skill-cat-title">Cloud, DevOps & Engineering</div>
+      <ul class="skill-list">
+        <li><strong>Cloud:</strong> AWS (EC2, ECR), GCP (Firestore), Firebase (Remote Config, Auth).</li>
+        <li><strong>Containerization:</strong> Docker, Kubernetes.</li>
+        <li><strong>Pipelines:</strong> CI/CD, ETL, MQTT Protocols.</li>
+        <li><strong>Standards:</strong> Git, RESTful API Design, Linting (Black/Flake8).</li>
+      </ul>
+    </div>
+
+    <div class="skill-cat-card wide reveal reveal-delay-1">
+      <div class="skill-cat-num">05 · ARCHITECTURES</div>
+      <div class="skill-cat-title">Architectures & Algorithms (Applied)</div>
+      <div class="arch-subgrid">
+        <div>
+          <span class="arch-sub-label">Generative AI</span>
+          <ul class="skill-list">
+            <li><strong>GANs:</strong> DCGAN, Adversarial Zero-Sum Training.</li>
+            <li><strong>Diffusion:</strong> DDPM, U-Net architectures.</li>
+            <li><strong>VAEs:</strong> Variational Autoencoders, ELBO optimization.</li>
+          </ul>
+        </div>
+        <div>
+          <span class="arch-sub-label">Reinforcement Learning</span>
+          <ul class="skill-list">
+            <li>Deep Reinforcement Learning (DRL).</li>
+            <li>Soft Actor-Critic (SAC).</li>
+            <li>Model-Based RL (MBRL).</li>
+            <li>Policy Gradient Methods.</li>
+          </ul>
+        </div>
+        <div>
+          <span class="arch-sub-label">Computer Vision</span>
+          <ul class="skill-list">
+            <li><strong>Architectures:</strong> ResNet-18, VGG16, AlexNet, YOLOv5, Faster R-CNN.</li>
+            <li><strong>Techniques:</strong> Transfer Learning, Saliency Maps, Adversarial Attacks (FGM, PGD).</li>
+          </ul>
+        </div>
+        <div>
+          <span class="arch-sub-label">Transformers & NLP</span>
+          <ul class="skill-list">
+            <li>GPT, BERT, BART, DistilRoBERTa.</li>
+            <li>Multi-Head Attention, Embeddings, Vector Databases.</li>
+          </ul>
+        </div>
+        <div>
+          <span class="arch-sub-label">Graph & Time-Series</span>
+          <ul class="skill-list">
+            <li>GAT (Graph Attention Networks).</li>
+            <li>LSTM (Long Short-Term Memory).</li>
+            <li>Dynamic Node Embeddings.</li>
+          </ul>
+        </div>
+        <div>
+          <span class="arch-sub-label">Robustness & Security</span>
+          <ul class="skill-list">
+            <li>Adversarial Attacks (FGM, PGD).</li>
+            <li>Spatial Outlier Detection.</li>
+            <li>GPS Spoofing Mitigation.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Kiran Prasad <span style="color:var(--accent)">JP</span></div>
+  <div class="footer-links">
+    <a href="https://github.com/captainKLSH" target="_blank">GITHUB</a>
+    <a href="https://linkedin.com/in/kiranprasadjp/" target="_blank">LINKEDIN</a>
+    <a href="mailto:kjamunap@alumni.cmu.edu">EMAIL</a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
 </html>

@@ -1,4 +1,4 @@
-.grid {
+.dot-grid {
   display: grid;
   width: 100vw;
   height: 100vh;
@@ -11,7 +11,7 @@ body {
   cursor: none;
 }
 
-.dot {
+.cursor-dot {
   width: 3px;
   height: 3px;
   background: var(--black-color);
@@ -28,7 +28,8 @@ body {
   background: var(--curback);
   box-shadow: var(--cursha);
   position: fixed;
-  top: 0;
+  top: -50px; /* off-screen until first mousemove */
+  left: -50px;
   pointer-events: none;
   z-index: 99999999; /* so that it stays on top of all other elements */
 }
@@ -38,8 +39,15 @@ body {
   border-radius: 19px;
   background-color: var(--black-color);
   position: fixed;
-  top: 0;
-  left: 0;
+  top: -50px; /* off-screen until first mousemove */
+  left: -50px;
   pointer-events: none;
   z-index: 99999998; /* so that it stays on top of all other elements */
+}
+
+@media screen and (max-width: 999px){
+  .circle{display: none}
+  .circle1{display: none}
+
+
 }

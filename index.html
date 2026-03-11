@@ -8,9 +8,9 @@
     href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
     rel="stylesheet"/>
     <!-- FONTSSTYLES -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=BioRhyme:wdth,wght@100..125,200..800&family=Rock+Salt&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Handlee&display=swapfamily=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@200..800&family=Handlee&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Rock+Salt&family=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <title>Kiran Jamuna Prasad</title>
     <!-- CSS -->
     <link rel="stylesheet" href="./assests/css/styles.css">
@@ -20,11 +20,11 @@
     <!-- GSAP -->
      
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js"></script>
 </head>
 <body>
+    <style>.main { display: none; }</style>
     <!-- NAVBAR -->
     <header class="header" id="header">
         <nav class="nav container">
@@ -66,8 +66,8 @@
             </div>
             <!-- Theme button for mobile, hidden on desktop -->
             <button id="theme-toggle-mobile" aria-label="Toggle theme" class="theme-toggle-mobile">
-                <i class="ri-sun-fill theme-icon theme-icon--sun"></i>
                 <i class="ri-moon-fill theme-icon theme-icon--moon"></i>
+                <i class="ri-sun-fill theme-icon theme-icon--sun"></i>
             </button>
         </nav>
     </header>
@@ -77,7 +77,7 @@
         <!--==================== HOME ====================-->
         <section class="home section card-section" id="home">
             <div class="home__container">
-                <div class="image-container1">
+                <div class="image-container1" id="b1">
                     <img src="./assests/images/Kianime.PNG" alt="Kianime" class="home__img1">
                 </div>
                 <div class="home__data" id="b2">
@@ -100,10 +100,10 @@
         <!--==================== ABOUT ====================-->
         <section class="about section card-section" id="about">
             <div class="about__container">
-                <div class="image-container2">
+                <div class="image-container2" id="c1">
                     <img src="./assests/images/ED1.png" alt="Kpic" class="home__img2">
                 </div>
-                <div class="about__content-wrapper">
+                <div class="about__content-wrapper" id="c2">
                     <div class="about__title">
                     <ul class="about-title-list">
                         <li>
@@ -118,7 +118,7 @@
                 </div>
                 <div class="about__block">
                     <div class="about_block_main">
-                        <p>I'm a <b>Machine Learning Engineer</b> and 2025 graduate from <span style="color: rgb(196, 18, 48);font-family: Inknut Antique; font-weight: 700;font-size: 1.4rem;">Carnegie Mellon University</span>, where I learned to make machines think and occasionally overthink; with a focus on developing intelligent systems at the intersection of <strong>data, science, and impact.</strong> On a mission to blend logic, creativity, and a hint of chaos, currently leveling up to become an ethical hacker (white hat, of course… mostly 😏).</p>
+                        <p>I'm a <b>Machine Learning Engineer</b> and 2025 graduate from <span style="color: rgb(196, 18, 48);font-family: Inknut Antique; font-weight: 700;">Carnegie Mellon University</span>, where I learned to make machines think and occasionally overthink; with a focus on developing intelligent systems at the intersection of <strong>data, science, and impact.</strong> On a mission to blend logic, creativity, and a hint of chaos, currently leveling up to become an ethical hacker (white hat, of course… mostly 😏).</p>
                     </div>
                     <div class="about_block_official">
                         <p>My work spans a diverse range of domains—from <strong>healthcare</strong> and <strong>neuroscience</strong> to <strong>optimization</strong>, <strong>time-series analysis</strong>, and <strong>generative modeling</strong>. I have contributed to research in neural signal decoding and medical data analysis, developing solutions such as <strong>Graph Attention Networks combined with Reinforcement Learning</strong> to optimize the <em>Periodic Vehicle Routing Problem (PVRP)</em>. <br> <br>I've worked with real-world datasets, including <strong>NASA weather records, structural design optimization data</strong>, and bank marketing datasets—predicting client term deposit subscriptions from behavioral and campaign features. <br>In computer vision, I've trained <strong>Convolutional Neural Networks (CNNs) on CIFAR-10</strong> for image classification and implemented <strong>Denoising Diffusion Probabilistic Models (DDPMs)</strong> to generate realistic MNIST digits from noise. I have also built <strong>GAN-based pipelines</strong> for data augmentation and adversarial scenarios. <br> <br>For sequential modeling, I've utilized <strong>Long Short-Term Memory (LSTM)</strong> networks to analyze and forecast time-series data, enabling accurate predictions in dynamic environments. <br> I believe machine learning should be useful, ethical, and a little bit magical. Let's build something brilliant together.</p>
@@ -153,7 +153,7 @@
                         <div class="road-line"></div>
                         <div class="timeline-dots">
                         <!-- Dot with vertical line and label -->
-                        <div class="dot" style="left: 28%">
+                        <div class="dot" id="a1">
                             <!-- The vertical line starts at the center bottom of the dot -->
                             <div class="dot-line"></div>
                             <div class="dot-label">
@@ -164,7 +164,7 @@
                                 <p class="college" style="color: rgb(18, 30, 196)">B.M.S. College of Engineering</p>
                             </div>
                         </div>
-                        <div class="dot" style="left: 58%">
+                        <div class="dot" id="a2">
                             <div class="dot-line"></div>
                             <div class="dot-label">
                                 <h2 class="timedate">2023-2024</h2>
@@ -174,9 +174,9 @@
                                 <p class="college" style="color: rgb(196, 18, 48)">Carnegie Mellon University</p>
                             </div>
                         </div>
-                        <div class="dot" style="left: 80%">
+                        <div class="dot" id="a3">
                             <div class="dot-line">
-                                <p class="degree">Loading...</p>
+                                <p class="timedate">Loading...</p>
                             </div>
                         </div>
                         </div>
@@ -190,7 +190,7 @@
                         <div class="road-line"></div>
                         <div class="timeline-dots">
                         <!-- Dot with vertical line and label -->
-                        <div class="dot" style="left: 12%">
+                        <div class="dot" id="e1">
                             <!-- The vertical line starts at the center bottom of the dot -->
                             <div class="dot-line"></div>
                             <div class="dot-label">
@@ -198,7 +198,7 @@
                                 <p class="twork">Graduate-IT Associate <br> Carnegie Mellon</p>
                             </div>
                         </div>
-                        <div class="dot" style="left: 36%">
+                        <div class="dot" id="e2">
                             <!-- The vertical line starts at the center bottom of the dot -->
                             <div class="dot-line"></div>
                             <div class="dot-label">
@@ -206,7 +206,7 @@
                                 <p class="twork">Data Scientist <br> Carnegie Mellon</p>
                             </div>
                         </div>
-                        <div class="dot" style="left: 59%">
+                        <div class="dot" id="e3">
                             <!-- The vertical line starts at the center bottom of the dot -->
                             <div class="dot-line"></div>
                             <div class="dot-label">
@@ -369,7 +369,7 @@
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
-        <div id="grid" class="grid"></div>
+        <div id="grid" class="dot-grid"></div>
     </div>
     <!-- Preloader -->
     <div class="preloader">

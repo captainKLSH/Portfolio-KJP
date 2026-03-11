@@ -1,7 +1,7 @@
 // Dot grid
 let cols = 0;
 let rows = 0;
-let animationFrameId;
+// let animationFrameId;
 
 function fillGrid() {
   const grid = document.getElementById('grid');
@@ -13,7 +13,7 @@ function fillGrid() {
   for (let y = 0; y < rows; y++) {
     for (let x = 0; x < cols; x++) {
       const dot = document.createElement('div');
-      dot.className = 'dot';
+      dot.className = 'cursor-dot';
       dot.dataset.x = x;
       dot.dataset.y = y;
       grid.appendChild(dot);
@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded', fillGrid);
 document.addEventListener('mousemove', (e) => {
   const grid = document.getElementById('grid');
   if (!grid) return;
-  const dots = document.querySelectorAll('.dot');
+  const dots = document.querySelectorAll('.cursor-dot');
   const gridRect = grid.getBoundingClientRect();
 
   dots.forEach(dot => {

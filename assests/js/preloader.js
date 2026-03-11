@@ -20,7 +20,11 @@ document.addEventListener("DOMContentLoaded", function() {
       onComplete: () => {
         repeatCount++;
         if (repeatCount < maxRepeats) {
-          setTimeout(animatePreloader, 400);
+          gsap.to(lines, {
+            opacity: 0,
+            duration: 0.3,
+            onComplete: () => setTimeout(animatePreloader, 200)
+          });
         } else {
           // Final expansion and hide preloader
           gsap.to(lines[4], {
@@ -52,9 +56,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Animate 5th line
     tl.to(lines[4], {strokeDashoffset: 0, duration: 0.4}, "+=0.1");
     // Fade out all lines before next repeat (if not last)
-    if (repeatCount < maxRepeats - 1) {
-      tl.to(lines, {opacity: 0, duration: 0.3}, "+=0.2");
-    }
+    // if (repeatCount < maxRepeats - 1) {
+    //   tl.to(lines, {opacity: 0, duration: 0.3}, "+=0.2");
+    // }
   }
 
   animatePreloader();
