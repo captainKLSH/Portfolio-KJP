@@ -5,6 +5,8 @@
 	min-width: 100vw; min-height: 100vh;
     max-width: 100vw; max-height: 100vh;
 	z-index: -1;
+  left: 0;
+  top: 0;
 	display: block;
 	pointer-events: none;
 	}
@@ -47,6 +49,9 @@
   color: var(--black-color);
   font-weight: 700;
 }
+.h2{
+  color: var(--black-color); font-weight: 800; font-size: 2rem;
+}
 
 .parasec {
   font-family: var(--body-font2);
@@ -69,5 +74,33 @@ hr {
   margin-right: auto;           /* Center the lines */
 }
 
+@media screen and (min-width: 340px){
+  .h2{
+    font-size: 1rem;
+  }
+  .he2sec{
+    font-size: 1rem;
+  }
+  .parasec{font-size: 0.8rem;}
+}
+@media screen and (min-width: 768px){
+  .h2{
+    font-size: 1.5rem;
+  }
+  .he2sec{
+    font-size: 1.2rem;
+  }
+  .parasec{font-size: 0.9rem;}
+}
+@media screen and (min-width: 1000px){
+  h2{font-size: 1.8rem;}
+  .he2sec{font-size: 1.4rem;}
+  .parasec{font-size: 1rem;}
+}
+@media screen and (min-width: 1280px){
+  h2{font-size: 3rem;}
+  .he2sec{font-size: 1.6rem;}
+  .parasec{font-size: 1.2rem;}
 
+}
 
