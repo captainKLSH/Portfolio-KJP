@@ -1,51 +1,56 @@
-/* ============== Theme toggle ============== */
+/*============== Theme toggle ============== */
 const html = document.documentElement;
-
 function toggleTheme() {
   html.classList.toggle('dark-theme');
   localStorage.setItem('theme', html.classList.contains('dark-theme') ? 'dark' : 'light');
 }
-
 document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
 
-// FIX #4: Single source of truth for theme init — removed duplicate from rain.js
+// On page load, apply saved theme
 if (localStorage.getItem('theme') === 'dark') {
   html.classList.add('dark-theme');
 }
 
-/* =============== SHOW MENU =============== */
-const navMenu   = document.getElementById('nav-menu');
-const navToggle = document.getElementById('nav-toggle');
-const navClose  = document.getElementById('nav-close');
 
-if (navToggle) {
-  navToggle.addEventListener('click', () => navMenu.classList.add('show-menu'));
+/*=============== SHOW MENU ===============*/
+const navMenu=document.getElementById('nav-menu'),
+navToggle=document.getElementById('nav-toggle'),
+navClose=document.getElementById('nav-close')
+// Menu show
+if(navToggle){
+    navToggle.addEventListener('click',()=>{
+        navMenu.classList.add('show-menu')
+    })
 }
-if (navClose) {
-  navClose.addEventListener('click', () => navMenu.classList.remove('show-menu'));
+// Menu hidden
+if(navClose){
+    navClose.addEventListener('click',()=>{
+        navMenu.classList.remove('show-menu')
+    })
 }
+/*=============== REMOVE MENU MOBILE ===============*/
+const navLink = document.querySelectorAll('.nav__link')
+const linkAction = () =>{
+    const navMenu = document.getElementById('nav-menu')
+    navMenu.classList.remove('show-menu')
+}
+navLink.forEach(n=>n.addEventListener('click', linkAction))
 
-/* =============== REMOVE MENU ON LINK CLICK (mobile) =============== */
-document.querySelectorAll('.nav__link').forEach(link => {
-  link.addEventListener('click', () => {
-    document.getElementById('nav-menu').classList.remove('show-menu');
+/*=============== Footer ===============*/ 
+document.getElementById("year").textContent = new Date().getFullYear();
+// Scroll to top button logic
+  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+  window.addEventListener("scroll", () => {
+    scrollToTopBtn.style.display = window.scrollY > 300 ? "flex" : "none";
   });
-});
+  window.addEventListener("scroll", () => {
+    scrollToTopBtn.classList.toggle("visible", window.scrollY > 300);
+  });
 
-/* =============== FOOTER — year =============== */
-document.getElementById('year').textContent = new Date().getFullYear();
+  scrollToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 
-/* =============== SCROLL-TO-TOP ===============
-   FIX #5: Removed duplicate scroll listener and inline style.display toggling.
-   Visibility is now handled entirely via CSS .visible class (opacity + pointer-events).
-   The .scroll-to-top base rule in styles.css must use opacity:0, not display:none. */
-const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
-window.addEventListener('scroll', () => {
-  scrollToTopBtn.classList.toggle('visible', window.scrollY > 300);
-});
-
-scrollToTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
