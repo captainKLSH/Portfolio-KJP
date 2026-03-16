@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kiran Prasad JP · Resume</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=Fraunces:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+
 <style>
   :root {
     --bg: #0a0e17;
@@ -468,7 +469,7 @@
     <div class="hero-contact">
       <a href="https://www.linkedin.com/in/kiranprasadjp" target="_blank">LinkedIn ↗</a>
       <a href="https://github.com/captainKLSH" target="_blank">GitHub ↗</a>
-      <a href="/cdn-cgi/l/email-protection#553e3f3438203b342515343920383b3c7b3638207b303120">Email ↗</a>
+      <a href="mailto:kjamunap@alumni.cmu.edu">Email ↗</a>
     </div>
     <div class="hero-tags">
       <span class="tag hot">Python</span>
@@ -809,7 +810,7 @@
   <div class="footer-links">
     <a href="https://github.com/captainKLSH" target="_blank">GITHUB</a>
     <a href="https://linkedin.com/in/kiranprasadjp/" target="_blank">LINKEDIN</a>
-    <a href="/cdn-cgi/l/email-protection#422928232f372c233202232e372f2c2b6c212f376c272637">EMAIL</a>
+    <a href="mailto:kjamunap@alumni.cmu.edu">EMAIL</a>
   </div>
 </footer>
 
@@ -826,11 +827,12 @@
 </script>
 
 <!-- Three.js -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 <script src="../js/touch-mouse-guard.js"></script>
 
 <!-- GridDistortion — hero only -->
-<script>
+<script type="module">
+  import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js';
+
 (function(){
   var VS=[
     'uniform float time;',

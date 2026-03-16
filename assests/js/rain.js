@@ -17,6 +17,8 @@
  *   .updateText(str, color) redraw background texture
  */
 
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js';
+
 (function (root, factory) {
   if (typeof module !== 'undefined' && module.exports) { module.exports = factory(); }
   else if (typeof define === 'function' && define.amd) { define(factory); }
@@ -133,7 +135,7 @@
 
     var cfg = Object.assign({
       bgColor:     '#0a0e17',
-      textContent: 'Kiran Prasad JP',
+      textContent: 'Automating Intuition',
       textColor:   'rgba(255, 56, 92, 0.18)',
       textFont:    '700 90px "Fraunces", serif'
     }, opts || {});

@@ -22,6 +22,7 @@
  * Instance methods:
  *   .destroy()   cancel RAF, remove canvas, lose GL context
  */
+
 (function (root, factory) {
   if (typeof module !== 'undefined' && module.exports) { module.exports = factory(); }
   else if (typeof define === 'function' && define.amd) { define(factory); }
