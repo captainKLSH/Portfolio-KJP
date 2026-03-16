@@ -71,10 +71,12 @@
       spring: { mass: 0.1, stiffness: 150, damping: 12 }
     }, opts || {});
 
-    /* ── Outer wrapper (takes height of magnified dock) ── */
+    /* ── Outer wrapper ── */
     var outer = document.createElement('div');
     outer.className = 'dock-outer';
-    outer.style.height = (cfg.magnification + cfg.magnification / 2 + 4) + 'px';
+    /* Only add magnification headroom when magnification is actually enabled */
+    var extraHeight = cfg.distance > 0 ? Math.round((cfg.magnification - cfg.panelHeight) * 0.5) : 0;
+    outer.style.height = (cfg.panelHeight + extraHeight + 4) + 'px';
     mountEl.appendChild(outer);
 
     /* ── Panel ── */
@@ -185,7 +187,7 @@
       itemEls.forEach(function (el, i) {
         var target = cfg.baseItemSize;
 
-        if (mousePageX !== null) {
+        if (mousePageX !== null && cfg.distance > 0) {
           var rect = el.getBoundingClientRect();
           var center = rect.left + rect.width / 2;
           /* pageX vs clientX: account for scroll */
@@ -221,9 +223,43 @@
       if (!rafId) { last = null; rafId = requestAnimationFrame(loop); }
     });
 
+    /* ── Resize: recalculate scale on viewport change ── */
+    var resizeTimer = null;
+    function onResize() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        var nvw = window.innerWidth;
+        var nscale =
+          nvw >= 1000 ? { base: 50, mag: 70,  panel: 68, dist: 140 } :
+          nvw >= 768  ? { base: 44, mag: 62,  panel: 60, dist: 120 } :
+          nvw >= 480  ? { base: 38, mag: 38,  panel: 52, dist: 0   } :
+                        { base: 32, mag: 32,  panel: 44, dist: 0   };
+        cfg.baseItemSize  = nscale.base;
+        cfg.magnification = nscale.mag;
+        cfg.panelHeight   = nscale.panel;
+        cfg.distance      = nscale.dist;
+        cfg.gap           = nvw >= 768 ? 16 : nvw >= 480 ? 10 : 6;
+
+        var nExtra = cfg.distance > 0 ? Math.round((cfg.magnification - cfg.panelHeight) * 0.5) : 0;
+        outer.style.height = (cfg.panelHeight + nExtra + 4) + 'px';
+        panel.style.height = cfg.panelHeight + 'px';
+        panel.style.gap    = cfg.gap + 'px';
+
+        itemEls.forEach(function (el, i) {
+          springs[i].value  = cfg.baseItemSize;
+          springs[i].target = cfg.baseItemSize;
+          el.style.width    = cfg.baseItemSize + 'px';
+          el.style.height   = cfg.baseItemSize + 'px';
+        });
+      }, 150);
+    }
+    window.addEventListener('resize', onResize);
+
     /* ── Public API ── */
     this.destroy = function () {
       if (rafId) cancelAnimationFrame(rafId);
+      clearTimeout(resizeTimer);
+      window.removeEventListener('resize', onResize);
       panel.removeEventListener('mousemove',  onMouseMove);
       panel.removeEventListener('mouseleave', onMouseLeave);
       if (outer.parentNode) mountEl.removeChild(outer);

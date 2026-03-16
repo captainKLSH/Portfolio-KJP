@@ -4,6 +4,8 @@ const html = document.documentElement;
 function toggleTheme() {
   html.classList.toggle('dark-theme');
   localStorage.setItem('theme', html.classList.contains('dark-theme') ? 'dark' : 'light');
+  /* Let the dock (and any other resize-aware components) recalculate after repaint */
+  window.dispatchEvent(new Event('resize'));
 }
 
 /* Guard — these buttons only exist on pages that have the full nav */
