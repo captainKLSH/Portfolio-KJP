@@ -41,7 +41,7 @@
         </nav>
     </header>
     <section class="hero" id="hero" style="width:100vw; height:100vh; display:inline-block; vertical-align:top;">
-       
+
     </section>
 
     <!-- Dock nav mount -->
@@ -368,7 +368,7 @@
     </footer>
 
     <!--MAIN JS  -->
-    
+    <script src="../js/touch-mouse-guard.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/dock.js"></script>
     <script src="../js/rain.js"></script>
@@ -419,10 +419,7 @@
 
             /* Restore theme */
             if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark-theme');
-        });</script>
-    
-    <!-- Init — one line -->
-    <script>
+        });
         document.addEventListener('DOMContentLoaded', function () {
 
             var rain = new RainHero(document.getElementById('hero'), {
@@ -445,7 +442,7 @@
 
         });
     </script>
-    
+
 
 </body>
 
