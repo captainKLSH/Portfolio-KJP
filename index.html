@@ -342,8 +342,8 @@
     </div>
     </div> 
      <!--MAIN JS  -->
-    <script src="./assests/js/preloader.js"></script>
     <script src="./assests/js/touch-mouse-guard.js"></script>
+    <script src="./assests/js/preloader.js"></script>
     <script src="./assests/js/GridCursor.js"></script>
     <script src="./assests/js/main.js"></script>
     <script src="./assests/js/home.js"></script>
@@ -362,33 +362,34 @@
         var CONTACT_SVG    = '<span class="material-icons-round">mail</span>';
         var THEME_SVG_MOON = '<span class="material-icons-round">dark_mode</span>';
         var THEME_SVG_SUN  = '<span class="material-icons-round">light_mode</span>';
-      var themeItem = {
-        iconHTML: document.documentElement.classList.contains('dark-theme') ? THEME_SVG_SUN : THEME_SVG_MOON,
-        label: 'Theme',
-        onClick: function() {
-          document.documentElement.classList.toggle('dark-theme');
-          localStorage.setItem('theme', document.documentElement.classList.contains('dark-theme') ? 'dark' : 'light');
-          /* swap icon */
+        var themeItem = {
+            iconHTML: document.documentElement.classList.contains('dark-theme') ? THEME_SVG_SUN : THEME_SVG_MOON,
+            label: 'Theme',
+            onClick: function() {
+            document.documentElement.classList.toggle('dark-theme');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark-theme') ? 'dark' : 'light');
+            /* swap icon */
             var iconEl = document.querySelector('#dock-mount .dock-item:last-child .dock-icon');
             if (iconEl) {
                 iconEl.innerHTML = document.documentElement.classList.contains('dark-theme')
                     ? THEME_SVG_SUN
                     : THEME_SVG_MOON;
                 }
-        }
-      };
+
+            }
+        };
  
       new Dock(document.getElementById('dock-mount'), [
-        { iconHTML: HOME_SVG,    label: 'Home',    href: './index.html', active: true },
+        { iconHTML: HOME_SVG,    label: 'Home',    href: './index.html',active:true },
         { iconHTML: PROJECT_SVG, label: 'Projects', href: './assests/projects/project.html' },
-        { iconHTML: ARCHIVE_SVG, label: 'Archive',  href: './assests/projects/archive.html' },
+        { iconHTML: ARCHIVE_SVG, label: 'Archive',  href: './assests/projects/archive.html'},
         { iconHTML: RESUME_SVG,  label: 'Resume',   href: './assests/projects/resume.html'  },
         { iconHTML: CONTACT_SVG, label: 'Contact',  onClick: function(){ document.querySelector('#contact')?.scrollIntoView({behavior:'smooth'}); } },
         themeItem
       ], {
         panelHeight:   68,
         baseItemSize:  50,
-        magnification: 70,
+        magnification: 20,
         distance:      140,
         gap:           12
       });
