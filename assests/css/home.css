@@ -7,9 +7,7 @@
      Desktop:      ≥ 1000px
      Desktop-L:    ≥ 1280px
    ============================================================ */
-#scramble-container {
-  position: relative;
-}
+
 
 .word {
   display: inline-block;
@@ -19,14 +17,37 @@
   font-weight: 600;
 }
 
-#scramble-cursor {
-  width: 3px;
-  height: 1.1rem;
-  background: #51b3e8;
-  margin-left: 4px;
-  display: inline-block;
-  vertical-align: sub;
-}
+/* ── TextType container ─────────────────────────────────────────── */
+    #title-container {
+      font-family: var(--body-font2);
+      font-size: clamp(1.1rem, 2.8vw, 1.7rem);
+      font-weight: 600;
+      color: var(--black-color);
+      min-height: auto;
+      margin-top: 2rem;
+      display: flex;
+      align-items: baseline;
+    }
+ 
+    /* TextType.css — inlined */
+    .text-type {
+      display: inline-block;
+      white-space: pre-wrap;
+    }
+    .text-type__content {
+      color: var(--accent-color);
+    }
+    .text-type__cursor {
+      margin-left: 2px;
+      display: inline-block;
+      opacity: 1;
+      color: var(--accent-color);
+    }
+    .text-type__cursor--hidden {
+      display: none;
+    }
+
+    
 
 .card-section {
   scroll-snap-align: start;
@@ -73,30 +94,76 @@
 .home__name {
   font-family: "Rock Salt", sans-serif;
   font-weight: 900;
-  font-style: normal;
-  display: inline-block;
-  margin: 0;
+  font-style: oblique;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 1rem;
   padding-left: 6px;
+  line-height: 1.2;
   font-size: 1.4rem;
-  letter-spacing: 0.5px;
-  background: radial-gradient(#BC12FF, #E026BE, #F0469B, #FA697A, #FF8F5E, #BC12FF);
-  color: transparent;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
-  background-clip: text;
-  -webkit-background-clip: text;
-  background-size: 400%, auto;
-  animation: gradientAnimation 10s ease infinite;
+  letter-spacing: 2.5px;
+  color: var(--hedna);
+}
+.home__name .blur-word {
+      display: inline-block;
+      will-change: transform, filter, opacity;
+    }
+
+/* TrueFocus.css — drop alongside TrueFocus.js */
+
+.focus-container {
+  position: relative;
+  display: flex;
+  gap: 1em;
+  margin-top: 1rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  outline: none;
+  user-select: none;
 }
 
-@keyframes gradientAnimation {
-  0%   { background-position: 0% 200%; }
-  25%  { background-position: 100% 0%; }
-  50%  { background-position: 100% 50%; }
-  75%  { background-position: 0% 100%; }
-  100% { background-position: 200% 0%; }
+.focus-word {
+  position: relative;
+  font-family: var(--body-font);
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: filter 0.3s ease, color 0.3s ease;
+  outline: none;
+  user-select: none;
 }
 
-.home__hed {
+.focus-word.active {
+  filter: blur(0);
+}
+
+.focus-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  box-sizing: content-box;
+  border: none;
+}
+
+.corner {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border: 3px solid var(--border-color, #fff);
+  filter: drop-shadow(0px 0px 4px var(--glow-color, rgba(255,255,255,0.6)));
+  border-radius: 3px;
+  transition: none;
+}
+
+.top-left    { top: -10px;    left: -10px;  border-right: none;  border-bottom: none; }
+.top-right   { top: -10px;    right: -10px; border-left: none;   border-bottom: none; }
+.bottom-left { bottom: -10px; left: -10px;  border-right: none;  border-top: none;    }
+.bottom-right{ bottom: -10px; right: -10px; border-left: none;   border-top: none;    }
+
+.focus-word {
   font-family: "BioRhyme", sans-serif;
   color: var(--black-color);
   font-size: 1rem;
@@ -527,10 +594,10 @@ svg path {
 /* --- Mobile-S: 340px */
 @media screen and (min-width: 340px) {
   .home__name  { font-size: 1.2rem; }
-  .home__hed   { font-size: 1.15rem; }
+  .focus-word   { font-size: 1.15rem; }
   .home__subh  { font-size: 0.95rem; }
   .word        { font-size: 1rem; }
-  #scramble-cursor { height: 1.4rem; }
+  #title-container {font-size: clamp(1.1rem, 2.8vw, 1.7rem); }
 
   .home__img1 { max-width: 300px; }
 
@@ -568,10 +635,10 @@ svg path {
 /* ── Mobile-L: 480px ── */
 @media screen and (min-width: 480px) {
   .home__name  { font-size: 1.6rem; }
-  .home__hed   { font-size: 1.15rem; }
+  .focus-word   { font-size: 1.15rem; }
   .home__subh  { font-size: 0.95rem; }
   .word        { font-size: 1rem; }
-  #scramble-cursor { height: 1.4rem; }
+  #title-container { font-size: clamp(1.1rem, 2.8vw, 1.7rem); }
 
   .home__img1 { max-width: 300px; }
 
@@ -622,10 +689,10 @@ svg path {
   #b1 { order: 2; }
 
   .home__name  { font-size: 1.6rem; }
-  .home__hed   { font-size: 1.4rem; }
+  .focus-word   { font-size: 1.4rem; }
   .home__subh  { font-size: 1.05rem; }
   .word        { font-size: 1rem; }
-  #scramble-cursor { height: 1.6rem; }
+  #title-container { font-size: clamp(1.1rem, 2.8vw, 1.5rem); }
 
   /* About: side-by-side */
   .about__container   { flex-wrap: nowrap; align-items: center; gap: 1rem; }
@@ -680,10 +747,10 @@ svg path {
   .image-container1 { width: 46%; }
 
   .home__name  { font-size: 2rem; padding-left: 5px; }
-  .home__hed   { font-size: 1.8rem; }
+  .focus-word   { font-size: 1.8rem; }
   .home__subh  { font-size: 1.2rem; }
   .word        { font-size: 1.2rem; }
-  #scramble-cursor { height: 2rem; width: 4px; }
+  #title-container { font-size: clamp(1.1rem, 2.8vw, 1.8rem); }
 
   /* About */
   .about__container   { flex-wrap: nowrap; align-items: center; gap: 3rem; }
@@ -732,7 +799,8 @@ svg path {
   .image-container1 { width: 48%; }
   .home__data       { width: 70%; margin-top: 0rem; }
   .home__name  { font-size: 2.5rem; }
-  .home__hed   { font-size: 2.2rem; }
+  .focus-word   { font-size: 2.2rem; }
+  #title-container { font-size: clamp(1.1rem, 2.8vw, 2rem); }
   
   .home__subh  { font-size: 1.35rem; }
   .word{font-size: 1.8rem;}

@@ -1,27 +1,42 @@
+/* project.js — parallax scroll for project sections only
+   Requires GSAP + ScrollTrigger loaded before this script.  */
+
 gsap.registerPlugin(ScrollTrigger);
 
-let getRatio = el => window.innerHeight / (window.innerHeight + el.offsetHeight);
+/* Target only sections inside <main>, not the hero */
+var sections = gsap.utils.toArray('main section');
 
-gsap.utils.toArray("section").forEach((section, i) => {
-  section.bg = section.querySelector(".bg"); 
+var getRatio = function (el) {
+  return window.innerHeight / (window.innerHeight + el.offsetHeight);
+};
 
-  // Read image from data attribute
-  const image = section.bg.dataset.bg;
+sections.forEach(function (section, i) {
+  var bg = section.querySelector('.bg');
+  if (!bg) return;
+
+  /* Apply background image from data-bg attribute */
+  var image = bg.dataset.bg;
   if (image) {
-    section.bg.style.backgroundImage = `url(${image})`;
+    bg.style.backgroundImage = 'url(' + image + ')';
   }
 
-  // Parallax animation
-  gsap.fromTo(section.bg, {
-    backgroundPosition: () => i ? `50% ${-window.innerHeight * getRatio(section)}px` : "50% 0px"
+  /* Parallax: scroll background slower than content */
+  gsap.fromTo(bg, {
+    backgroundPosition: function () {
+      return i
+        ? '50% ' + (-window.innerHeight * getRatio(section)) + 'px'
+        : '50% 0px';
+    }
   }, {
-    backgroundPosition: () => `50% ${window.innerHeight * (1 - getRatio(section))}px`,
-    ease: "none",
+    backgroundPosition: function () {
+      return '50% ' + (window.innerHeight * (1 - getRatio(section))) + 'px';
+    },
+    ease: 'none',
     scrollTrigger: {
-      trigger: section,
-      start: () => i ? "top bottom" : "top top", 
-      end: "bottom top",
-      scrub: true,
+      trigger:           section,
+      start:             function () { return i ? 'top bottom' : 'top top'; },
+      end:               'bottom top',
+      scrub:             true,
       invalidateOnRefresh: true
     }
   });

@@ -15,6 +15,7 @@
   --body-color: hsl(0, 0%, 98%);
   --body-second-color: hsl(280, 70%, 55%);
   --shadow-img: -8px 8px 16px hsla(0, 0%, 0%, .2);
+  --hedna: #c41230;
   --curback: radial-gradient(circle at 70% 70%, #000000 40%, #e4eff7 92%);
   --cursha: 0 8px 24px rgba(255, 255, 255, 0.2);
 
@@ -56,6 +57,7 @@ html.dark-theme {
   --black-color: hsl(22, 66%, 94%);
   --white-color: hsl(0, 0%, 0%);
   --body-color: hsl(0, 0%, 10%);
+  --hedna: #f5a623;
   --body-second-color: hsl(45, 70%, 45%);
   --shadow-img: -8px 8px 16px hsla(0, 0%, 0%, .7);
   --curback: radial-gradient(circle at 70% 70%, #fff 40%, #242424 92%);
@@ -337,7 +339,7 @@ html.dark-theme .theme-icon--sun { display: inline; }
 }
 .footer__container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto 4rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- REMIX ICONS -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
     <!-- FONTSSTYLES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,74 +15,58 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/arch.css">
-    <!-- <link rel="stylesheet" href="../css/GridCursor.css"> -->
+    <link rel="stylesheet" href="../css/dock.css">
+    <link rel="stylesheet" href="../css/light.css">
+
     <!-- GSAP -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 
+   
+
 
 </head>
 
 <body>
-    <!-- Full page fluid background container -->
-    <canvas id="fluid-bg"></canvas>
+    
     <!-- NAVBAR -->
     <header class="header" id="header">
         <nav class="nav container">
             <a href="../../index.html" class="nav__logo">
                 <img src="../images/Ki.gif" alt="KJP.">
             </a>
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li>
-                        <a href="../../index.html" class="nav__link">Home</a>
-                    </li>
-                    <li>
-                        <a href="./project.html" class="nav__link">Project</a>
-                    </li>
-                    <li>
-                        <a href="./archive.html" class="nav__link">Archive</a>
-                    </li>
-                    <li>
-                        <a href="./resume.html" class="nav__link">Resume</a>
-                    </li>
-                    <li>
-                        <a href="#contact" class="nav__link">Contact</a>
-                    </li>
-                    <li class="nav__item--theme">
-                        <button id="theme-toggle" aria-label="Toggle theme" class="theme-toggle">
-                            <i class="ri-moon-fill theme-icon theme-icon--moon"></i>
-                            <i class="ri-sun-fill theme-icon theme-icon--sun"></i>
-                        </button>
-                    </li>
-                </ul>
-                <!-- CLOSE button -->
-                <div class="nav__close" id="nav-close">
-                    <i class="ri-close-large-line"></i>
-                </div>
-            </div>
-            <!-- Toggle button -->
-            <div class="nav__toggle" id="nav-toggle">
-                <i class="ri-apps-2-add-fill"></i>
-            </div>
-            <!-- Theme button for mobile, hidden on desktop -->
-            <button id="theme-toggle-mobile" aria-label="Toggle theme" class="theme-toggle-mobile">
-                <i class="ri-sun-fill theme-icon theme-icon--sun"></i>
-                <i class="ri-moon-fill theme-icon theme-icon--moon"></i>
-            </button>
         </nav>
     </header>
+
+    <!-- Dock nav mount -->
+    <div id="dock-mount"></div>
+    <section class="lightning-hero" id="hero" style="--lh-accent: #a78bfa;">
+      <div class="lightning-hero__overlay"></div>
+      <div class="lightning-hero__content">
+        <!-- <div class="lh-badge">Archive · Projects</div> -->
+        <h1 class="lh-heading">Chaos into <em>Pattern</em></h1>
+        <p class="lh-sub">
+          A curated collection of machine learning, computer vision,
+          and engineering projects — from theory to deployment.
+        </p>
+      </div>
+      <div class="lh-scroll">
+        <div class="lh-scroll__line"></div>
+        <span class="lh-scroll__label">Scroll</span>
+      </div>
+    </section>
 
     <!--==================== MAIN ====================-->
     <main class="main">
         <hr>
-        <div style="text-align: center; font-family: var(--body-font4);">
+        <div class="archive-header">
+            <span class="archive-label">Category</span>
             <h2 class="h2">Artificial Intelligence & Machine
                 Learning</h2>
         </div>
-        <div class="hori-container">
+        <div class="hori-container-wrap"><div class="hori-container">
             <section class="hori-section">
                 <div>
                     <div class="imgsec">
@@ -478,11 +463,13 @@
                 </div>
             </section>
         </div>
+        </div></div>
         <hr>
-        <div style="text-align: center; font-family: var(--body-font4);">
+        <div class="archive-header">
+            <span class="archive-label">Category</span>
             <h2 class="h2">Application Development</h2>
         </div>
-        <div class="hori-container">
+        <div class="hori-container-wrap"><div class="hori-container">
             <section class="hori-section">
                 <div>
                     <div class="imgsec">
@@ -586,11 +573,13 @@
                 </div>
             </section>
         </div>
+        </div></div>
         <hr>
-        <div style="text-align: center; font-family: var(--body-font4);">
+        <div class="archive-header">
+            <span class="archive-label">Category</span>
             <h2 class="h2">Web Development</h2>
         </div>
-        <div class="hori-container">
+        <div class="hori-container-wrap"><div class="hori-container">
             <section class="hori-section">
                 <div>
                     <div class="imgsec">
@@ -630,7 +619,7 @@
                     <div class="imgsec">
                         <img class="hori-ig" src="../images/Group 1.png" alt="1">
                     </div>
-                    <h3 class="he3sec">Creative Web Backgrounds with 3D and Shaders</h3>
+                    <h3 class="he2sec">Creative Web Backgrounds with 3D and Shaders</h3>
                     <p class="parasec">
                         I design immersive web page backgrounds using three.js and GLSL shaders, bringing advanced
                         graphics directly to the browser. <br>
@@ -653,7 +642,7 @@
                     <div class="imgsec">
                         <img class="hori-ig" src="../images/Group 2.png" alt="2">
                     </div>
-                    <h3 class="he3sec">Advanced Interactive Web Backgrounds & Visualizations</h3>
+                    <h3 class="he2sec">Advanced Interactive Web Backgrounds & Visualizations</h3>
                     <p class="parasec">
                         I design responsive web backgrounds using three.js and GLSL shaders, blending real-time graphics
                         with interactive, scientific storytelling. <br>
@@ -678,11 +667,13 @@
                 </div>
             </section>
         </div>
+        </div></div>
         <hr>
-        <div style="text-align: center; font-family: var(--body-font4);">
+        <div class="archive-header">
+            <span class="archive-label">Category</span>
             <h2 class="h2">Bachelors</h2>
         </div>
-        <div class="hori-container">
+        <div class="hori-container-wrap"><div class="hori-container">
             <section class="hori-section">
                 <div>
                     <div class="imgsec">
@@ -849,9 +840,7 @@
                     </p>
                 </div>
             </section>
-        </div>
-
-
+        </div></div>
 
 
     </main>
@@ -890,17 +879,84 @@
                     Design and Coded by &copy; <span id="year"></span> Kiran.
                 </p>
             </div>
-            <!-- Scroll to Top Button -->
-            <button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top">
-                <i class="ri-arrow-up-line"></i>
-            </button>
         </div>
     </footer>
 
     <!--MAIN JS  -->
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="../js/main.js"></script>
-    <!-- <script src="../js/GridCursor.js"></script> -->
-    <script type="module" src="../js/rainarch.js"></script>
+    <script src="../js/dock.js"></script>
+    <script src="../js/light.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+ 
+      /* ── Dock nav ── */
+        var HOME_SVG       = '<span class="material-icons-round">home</span>';
+        var PROJECT_SVG    = '<span class="material-icons-round">work</span>';
+        var ARCHIVE_SVG    = '<span class="material-icons-round">inventory_2</span>';
+        var RESUME_SVG     = '<span class="material-icons-round">description</span>';
+        var CONTACT_SVG    = '<span class="material-icons-round">mail</span>';
+        var THEME_SVG_MOON = '<span class="material-icons-round">dark_mode</span>';
+        var THEME_SVG_SUN  = '<span class="material-icons-round">light_mode</span>';
+        var themeItem = {
+            iconHTML: document.documentElement.classList.contains('dark-theme') ? THEME_SVG_SUN : THEME_SVG_MOON,
+            label: 'Theme',
+            onClick: function() {
+            document.documentElement.classList.toggle('dark-theme');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark-theme') ? 'dark' : 'light');
+            /* swap icon */
+            var iconEl = document.querySelector('#dock-mount .dock-item:last-child .dock-icon');
+            if (iconEl) {
+                iconEl.innerHTML = document.documentElement.classList.contains('dark-theme')
+                    ? THEME_SVG_SUN
+                    : THEME_SVG_MOON;
+                }
+
+            }
+        };
+ 
+      new Dock(document.getElementById('dock-mount'), [
+        { iconHTML: HOME_SVG,    label: 'Home',    href: '../../index.html' },
+        { iconHTML: PROJECT_SVG, label: 'Projects', href: './project.html' },
+        { iconHTML: ARCHIVE_SVG, label: 'Archive',  href: './archive.html',active:true },
+        { iconHTML: RESUME_SVG,  label: 'Resume',   href: './resume.html'  },
+        { iconHTML: CONTACT_SVG, label: 'Contact',  onClick: function(){ document.querySelector('#contact')?.scrollIntoView({behavior:'smooth'}); } },
+        themeItem
+      ], {
+        panelHeight:   68,
+        baseItemSize:  50,
+        magnification: 70,
+        distance:      140,
+        gap:           12
+      });
+ 
+      /* Grab the theme icon el for swapping */
+      var themeIconEl = document.querySelector('#dock-mount .dock-item:last-child .dock-icon');
+ 
+      /* Restore theme */
+      if(localStorage.getItem('theme')==='dark') document.documentElement.classList.add('dark-theme');
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+ 
+      /* ── Lightning — scoped to #hero only ─────────────────────
+         Prop reference:
+           hue        0–360   colour (260 = purple/violet)
+           xOffset    float   horizontal shift of the bolt
+           speed      float   animation speed
+           intensity  float   brightness
+           size       float   noise scale (larger = wider spread)
+      ──────────────────────────────────────────────────────────── */
+      new Lightning(document.getElementById('hero'), {
+        hue:       235,
+        xOffset:   0,
+        speed:     1,
+        intensity: 1,
+        size:      0.8
+      });
+ 
+    });
+  </script>
+
+   
 </body>
 </html>

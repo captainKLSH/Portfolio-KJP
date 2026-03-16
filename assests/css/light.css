@@ -1,0 +1,191 @@
+/* lightning-hero.css
+   Styles for the Lightning hero section.
+   Drop alongside Lightning.js. Nothing outside .lightning-hero is affected.
+*/
+
+/* ── Hero container ──────────────────────────────────────────── */
+.lightning-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Lightning canvas anchors here (injected by Lightning.js) */
+.lightning-hero canvas {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0;
+  display: block;
+  pointer-events: none;
+}
+
+/* Gradient overlay — keeps text readable over the effect */
+.lightning-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 50%,
+      transparent 0%,
+      rgba(0, 0, 0, 0.45) 100%),
+    linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.10) 40%,
+      rgba(0, 0, 0, 0.55) 100%);
+}
+
+/* Content sits above canvas + overlay */
+.lightning-hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 7rem 8vw 5rem;
+}
+
+/* ── Badge ───────────────────────────────────────────────────── */
+.lh-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 28px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: lh-fadeup 0.6s ease both;
+}
+.lh-badge::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: lh-blink 2.5s ease infinite;
+  flex-shrink: 0;
+}
+@keyframes lh-blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+/* ── Heading ─────────────────────────────────────────────────── */
+.lh-heading {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(50px, 8vw, 92px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin-bottom: 22px;
+  animation: lh-fadeup 0.7s 0.08s ease both;
+}
+.lh-heading em {
+  font-style: italic;
+  /* colour driven by --lh-accent, set inline in HTML */
+  color: var(--lh-accent, #a78bfa);
+}
+
+/* ── Sub-text ────────────────────────────────────────────────── */
+.lh-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(14px, 1.8vw, 17px);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 300;
+  max-width: 560px;
+  border-left: 2px solid var(--lh-accent, #a78bfa);
+  padding-left: 16px;
+  margin-bottom: 44px;
+  animation: lh-fadeup 0.7s 0.16s ease both;
+}
+
+/* ── CTA links ───────────────────────────────────────────────── */
+.lh-links {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  animation: lh-fadeup 0.7s 0.24s ease both;
+}
+.lh-link {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 7px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.lh-link:hover {
+  color: #fff;
+  border-color: var(--lh-accent, #a78bfa);
+  background: rgba(167, 139, 250, 0.1);
+}
+
+/* ── Scroll hint ─────────────────────────────────────────────── */
+.lh-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.4;
+  animation: lh-fadeup 1s 1.2s ease both;
+}
+.lh-scroll__line {
+  width: 1px;
+  height: 38px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.8));
+  animation: lh-scrollpulse 2s ease-in-out infinite;
+}
+.lh-scroll__label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+}
+@keyframes lh-scrollpulse {
+  0%,100% { opacity:0.4; transform:scaleY(1);    }
+  50%      { opacity:1;   transform:scaleY(1.15); }
+}
+
+/* ── Shared entrance animation ───────────────────────────────── */
+@keyframes lh-fadeup {
+  from { opacity:0; transform:translateY(18px); }
+  to   { opacity:1; transform:translateY(0);    }
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media screen and (min-width: 340px) {
+  .lightning-hero__content { padding: 6rem 1.3rem 4rem; }
+}
+@media screen and (min-width: 480px) {
+  .lightning-hero__content { padding: 6.5rem 5vw 4.5rem; }
+}
+@media screen and (min-width: 768px) {
+  .lightning-hero__content { padding: 7rem 7vw 5rem; }
+}
+@media screen and (min-width: 1000px) {
+  .lightning-hero__content { padding: 7rem 8vw 5rem; }
+}

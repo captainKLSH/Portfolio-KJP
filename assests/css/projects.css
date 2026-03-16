@@ -243,3 +243,30 @@ hr {
     padding-left: 2rem;
   }
 }
+
+/* ── Parallax fixes ─────────────────────────────────────────────
+   ScrollTrigger backgroundPosition parallax requires:
+   1. section must be position:relative (already set above)
+   2. section must clip its overflowing .bg — overflow:hidden
+   3. .bg must be position:absolute, width/height 100%, and
+      sized taller than the section so there is room to scroll
+   4. .hero section must NOT interfere — exclude it
+   ─────────────────────────────────────────────────────────────── */
+ 
+main section {
+  position: relative;
+  overflow: hidden;   /* clips the .bg when it moves */
+}
+ 
+main section .bg {
+  position: absolute;
+  top: -30%;          /* overshoot so parallax has travel room */
+  left: 0;
+  width: 100%;
+  height: 130%;       /* taller than 100% = parallax range */
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* drop-shadow from inline style still works; no override needed */
+}

@@ -1,0 +1,42 @@
+/* rain-hero.css
+   Scoped styles for the rain/water-ripple hero section.
+   Drop alongside rain-hero.js and link both in your page.
+   Nothing outside .hero is affected.
+*/
+
+/* ── Responsive watermark font (resolved by rain-hero.js) ────── */
+:root {
+  --hero-watermark-font: 700 32px "Ubuntu", serif;
+}
+@media screen and (min-width: 480px) {
+  :root { --hero-watermark-font: 700 42px "Ubuntu",sans-serif; }
+}
+@media screen and (min-width: 768px) {
+  :root { --hero-watermark-font: 800 60px "Ubuntu",sans-serif; }
+}
+@media screen and (min-width: 1000px) {
+  :root { --hero-watermark-font: 800 100px "Ubuntu",sans-serif; }
+}
+
+/* ── Hero must be position:relative so canvas anchors to it ──── */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Canvas sits full-bleed behind all hero children ─────────── */
+#rain-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: block;
+  pointer-events: none;
+}
+
+/* ── All existing hero children stack above the canvas ───────── */
+.hero > *:not(#rain-canvas) {
+  position: relative;
+  z-index: 1;
+}
