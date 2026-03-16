@@ -175,6 +175,27 @@
     panel.addEventListener('mousemove',  onMouseMove);
     panel.addEventListener('mouseleave', onMouseLeave);
 
+    /* ── Touch reset ────────────────────────────────────────────────
+       On touch devices iOS/iPadOS fires synthetic mousemove events
+       after a tap, which sets mousePageX and leaves springs stuck at
+       a magnified target. Track the last pointerType and null out
+       mousePageX on every touch interaction so springs always return
+       to baseItemSize cleanly.                                        */
+    var lastPointerType = 'mouse';
+    panel.addEventListener('pointerdown', function (e) {
+      lastPointerType = e.pointerType;
+      if (e.pointerType === 'touch') { mousePageX = null; }
+    });
+    var _origOnMouseMove = onMouseMove;
+    panel.removeEventListener('mousemove', onMouseMove);
+    panel.addEventListener('mousemove', function (e) {
+      if (lastPointerType === 'touch') return;
+      _origOnMouseMove(e);
+    });
+    panel.addEventListener('touchstart',  function () { mousePageX = null; }, { passive: true });
+    panel.addEventListener('touchend',    function () { mousePageX = null; }, { passive: true });
+    panel.addEventListener('touchcancel', function () { mousePageX = null; }, { passive: true });
+
     /* ── Animation loop ── */
     var last = null;
     function loop(ts) {
