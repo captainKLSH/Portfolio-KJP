@@ -194,19 +194,19 @@
 /* Style SVG path */
 svg path {
   fill: transparent;
-  stroke: var(--black-color);
-  stroke-width: 1;
-  stroke-dasharray: 900;
-  stroke-dashoffset: 900;
+  stroke: var(--hedna);
+  stroke-width: 2;
+  stroke-dasharray: 5000;
+  stroke-dashoffset: 5000;
 }
 
-.about__title.animate-path svg path {
-  animation: textAnimation 4s ease-in-out forwards;
+.animate-path svg path {
+  animation: textanimation 4s ease-in-out forwards;
 }
 
-@keyframes textAnimation {
+@keyframes textanimation {
   0% {
-    stroke-dashoffset: 900;
+    stroke-dashoffset: 5000;
   }
 
   80% {
@@ -256,9 +256,15 @@ svg path {
   border-radius: 30px;
   order: 2;
 }
+.scroll-trigger svg {
+      width: 30%;
+      max-width: 300px; /* Limits how big it can get on desktop */
+      height: auto;
+    }
 
-.about-title-list li:first-child svg {
-  max-width: 100%;
+.animate-path svg {
+  width: 20%;
+  max-width: 300px;
   height: auto;
 }
 
@@ -604,7 +610,7 @@ svg path {
   .image-container2{display: none;}
   .about__block{font-size: 0.85rem; }
   .about-title-list  { gap: 1rem; justify-content: space-around; flex-wrap: nowrap; }
-  .about-title-list li:first-child svg { max-width: 45%; height: auto;}
+  .animate-path svg  { width: 45%;}
   .toggle-about{max-width: 5rem; height: 3rem;}
   #abtToggle{font-size: 0.8rem;}
 
@@ -622,14 +628,15 @@ svg path {
   .timecarexp{ padding: 25.5% 3.5% 0 70%; }
   .twork     { font-size: 0.65rem; }
   .timecar img { max-width: 30%; }
-  .road-line{top: 90%;}
+  .road-line{top: 100%;}
   .timeline-dots{top:1%}
   #a1{left: 50%;}
   #a2{left: 50%;top:4.8rem}
   #a3{left: 50%;top: 10rem;}
-  #e1{left: 50%;}
-  #e2{left: 50%;top:3.8rem}
-  #e3{left: 50%;top:8rem}
+  #e0{left: 50%;top:-0.5rem}
+  #e1{left: 50%;top:3rem}
+  #e2{left: 50%;top:6.4rem}
+  #e3{left: 50%;top:10rem}
 }
 
 /* ── Mobile-L: 480px ── */
@@ -645,7 +652,7 @@ svg path {
   .image-container2{display: none;}
   .about__block{font-size: 0.85rem; }
   .about-title-list  { gap: 1rem; justify-content: space-around; flex-wrap: nowrap; }
-  .about-title-list li:first-child svg { max-width: 45%; height: auto;}
+  .animate-path svg  { width: 52%;}
   .toggle-about{max-width: 5rem; height: 3rem;}
   #abtToggle{font-size: 0.8rem;}
 
@@ -663,14 +670,15 @@ svg path {
   .timecarexp{ padding: 15.5% 3.5% 0 70%; }
   .twork     { font-size: 0.65rem; }
   .timecar img { max-width: 30%; }
-  .road-line{top: 80%;}
+  .road-line{top: 100%;}
   .timeline-dots{top:1%}
   #a1{left: 50%;}
   #a2{left: 50%;top:3.8rem}
   #a3{left: 50%;top: 9rem;}
-  #e1{left: 50%;}
-  #e2{left: 50%;top:3.8rem}
-  #e3{left: 50%;top:8rem}
+  #e0{left: 50%;top:-0.6rem}
+  #e1{left: 50%;top:3rem}
+  #e2{left: 50%;top:6.4rem}
+  #e3{left: 50%;top:10rem}
 }
 
 /* ── Tablet: 768px ── */
@@ -701,7 +709,7 @@ svg path {
   .about__content-wrapper { width: 65%; margin-top: 0rem;}
   .about__block      { font-size: 0.8rem; }
   .about-title-list  { gap: 6rem; justify-content: space-around; flex-wrap: nowrap; }
-  .about-title-list li:first-child svg { max-width: 50%; height: auto;}
+  .animate-path svg { width: 48%;}
   .toggle-about{max-width: 5rem; height: 3rem;}
 
   #abtToggle{font-size: 0.8rem;}
@@ -723,9 +731,10 @@ svg path {
   #a1{left: 20%;}
   #a2{left: 60%;top:0}
   #a3{left: 85%;top:0}
-  #e1{left: 13%;}
-  #e2{left: 37%;top:0}
-  #e3{left: 60%;top:0}
+  #e0{left: 11%;top:0}
+  #e1{left: 35%;top: 0;}
+  #e2{left: 58%;top:0}
+  #e3{left: 81%;top:0}
 
   /* Skills */
   .skill-item   { width: 78px; height: 78px; border-width: 3px; }
@@ -752,12 +761,14 @@ svg path {
   .word        { font-size: 1.2rem; }
   #title-container { font-size: clamp(1.1rem, 2.8vw, 1.8rem); }
 
+
   /* About */
   .about__container   { flex-wrap: nowrap; align-items: center; gap: 3rem; }
   .image-container2  { width: 35%;justify-content: flex-start;align-items: center; }
   .about__content-wrapper { width: 60%; margin-top: 0rem;}
   .about__block      { font-size: 0.9rem; }
   .about-title-list  { gap: 20rem; }
+  .animate-path svg { width: 60%;}
 
   /* Timeline */
   .timeline-horizontal { height: 320px; margin-top: 5rem; }
@@ -774,9 +785,10 @@ svg path {
   #a1{left: 25%;}
   #a2{left: 58%;}
   #a3{left: 85%;}
-  #e1{left: 13%;}
-  #e2{left: 40%;}
-  #e3{left: 65%;}
+  #e0{left: 11%;top:0}
+  #e1{left: 35%;top: 0;}
+  #e2{left: 58%;top:0}
+  #e3{left: 84%;top:0}
 
 
   /* Skills */

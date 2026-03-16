@@ -58,4 +58,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        
+        // If the user scrolls to the graphic
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-path');
+        } 
+        // If the user scrolls away from the graphic
+        else {
+          entry.target.classList.remove('animate-path');
+        }
+        
+      });
+    }, {
+      threshold: 0.5 // Triggers when 50% of the SVG is visible
+    });
+
+    // Find the graphic and tell the observer to watch it
+    const elementsToWatch = document.querySelectorAll('.scroll-trigger');
+    elementsToWatch.forEach((element) => {
+      observer.observe(element);
+    });
 
