@@ -93,19 +93,7 @@
   }
  
 
-  /* ── GRID DISTORTION (hero only) ── */
-  .hero-distortion {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    overflow: hidden;
-  }
-  .hero-distortion canvas {
-    display: block;
-    width: 100% !important;
-    height: 100% !important;
-    filter: grayscale(40%) brightness(0.45);
-  }
+
   /* Ensure existing hero children sit above the canvas */
   .hero-glow,
   .hero-glow2,
@@ -116,6 +104,25 @@
   }
 
   /* ── HERO ── */
+  /* Layer 1 — filtered background image */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: url('../images/gr8shark.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: grayscale(40%) brightness(0.45);
+  }
+  /* iOS Safari fix — fixed attachment on pseudo-elements is broken */
+  @supports (-webkit-touch-callout: none) {
+    .hero::before {
+      background-attachment: scroll;
+    }
+  }
+
   .hero {
     position: relative;
     min-height: 100vh;
@@ -496,7 +503,6 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-distortion" id="hero-distortion"></div>
   <div class="hero-content">
     <div class="badge">AI Engineer | Data Scientist</div>
     <h1>Kiran Prasad<br><em>Jamuna Prasad</em></h1>
@@ -901,121 +907,21 @@
     }, 100);
   }
 </script>
-
-<!-- GridDistortion — hero only -->
 <script type="module">
-  import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js';
-
-(function(){
-  var VS=[
-    'uniform float time;',
-    'varying vec2 vUv;',
-    'void main(){',
-    '  vUv=uv;',
-    '  gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);',
-    '}'
-  ].join('\n');
-  var FS=[
-    'uniform sampler2D uDataTexture;',
-    'uniform sampler2D uTexture;',
-    'uniform vec4 resolution;',
-    'varying vec2 vUv;',
-    'void main(){',
-    '  vec2 uv=vUv;',
-    '  vec4 offset=texture2D(uDataTexture,vUv);',
-    '  gl_FragColor=texture2D(uTexture,uv-0.02*offset.rg);',
-    '}'
-  ].join('\n');
-
-  var mountEl=document.getElementById('hero-distortion');
-  if(!mountEl||typeof THREE==='undefined') return;
-
-  var cfg={grid:20,mouse:0.14,strength:0.6,relaxation:0.5,
-           imageSrc:'../images/gr8shark.jpg'};
-  var size=cfg.grid;
-
-  var scene=new THREE.Scene();
-  var renderer=new THREE.WebGLRenderer({antialias:true,alpha:true,powerPreference:'high-performance'});
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-  renderer.setClearColor(0x000000,0);
-  mountEl.innerHTML='';
-  mountEl.appendChild(renderer.domElement);
-
-  var camera=new THREE.OrthographicCamera(0,0,0,0,-1000,1000);
-  camera.position.z=2;
-
-  var uniforms={
-    time:{value:0},resolution:{value:new THREE.Vector4()},
-    uTexture:{value:null},uDataTexture:{value:null}
-  };
-
-  var data=new Float32Array(4*size*size);
-  for(var k=0;k<size*size;k++){data[k*4]=Math.random()*255-125;data[k*4+1]=Math.random()*255-125;}
-  var dataTex=new THREE.DataTexture(data,size,size,THREE.RGBAFormat,THREE.FloatType);
-  dataTex.needsUpdate=true;
-  uniforms.uDataTexture.value=dataTex;
-
-  var geo=new THREE.PlaneGeometry(1,1,size-1,size-1);
-  var mat=new THREE.ShaderMaterial({side:THREE.DoubleSide,uniforms:uniforms,
-    vertexShader:VS,fragmentShader:FS,transparent:true});
-  var plane=new THREE.Mesh(geo,mat);
-  scene.add(plane);
-
-  new THREE.TextureLoader().load(cfg.imageSrc,function(tex){
-    tex.minFilter=THREE.LinearFilter; tex.magFilter=THREE.LinearFilter;
-    tex.wrapS=tex.wrapT=THREE.ClampToEdgeWrapping;
-    uniforms.uTexture.value=tex;
-    resize();
+  import FluidCursor from '../js/fluidcur.js';
+  
+  const cursor = new FluidCursor({
+    SPLAT_RADIUS:         0.15,       // smaller splats
+    SPLAT_FORCE:          8000,       // stronger force
+    DENSITY_DISSIPATION:  2.5,        // colour fades slower
+    VELOCITY_DISSIPATION: 1.8,        // movement fades slower
+    CURL:                 5,          // more swirling
+    BACK_COLOR:           { r: 0, g: 0, b: 0.5 },  // blue tint
+    SHADING:              true,
+    TRANSPARENT:          true,
   });
-
-  function resize(){
-    var r=mountEl.getBoundingClientRect(),w=r.width,h=r.height;
-    if(!w||!h) return;
-    var ca=w/h;
-    renderer.setSize(w,h);
-    plane.scale.set(ca,1,1);
-    camera.left=-ca/2; camera.right=ca/2;
-    camera.top=0.5;    camera.bottom=-0.5;
-    camera.updateProjectionMatrix();
-    uniforms.resolution.value.set(w,h,1,1);
-  }
-  new ResizeObserver(resize).observe(mountEl);
-  resize();
-
-  var ms={x:0,y:0,prevX:0,prevY:0,vX:0,vY:0};
-  var heroSection = mountEl.closest('section') || mountEl.parentElement;
-  heroSection.addEventListener('mousemove', function(e){
-    var r=mountEl.getBoundingClientRect();
-    var x=(e.clientX-r.left)/r.width, y=1-(e.clientY-r.top)/r.height;
-    ms.vX=x-ms.prevX; ms.vY=y-ms.prevY;
-    ms.x=x; ms.y=y; ms.prevX=x; ms.prevY=y;
-  });
-  mountEl.addEventListener('mouseleave',function(){
-    dataTex.needsUpdate=true;
-    ms.x=ms.y=ms.prevX=ms.prevY=ms.vX=ms.vY=0;
-  });
-
-  (function animate(){
-    requestAnimationFrame(animate);
-    uniforms.time.value+=0.05;
-    var d=dataTex.image.data;
-    for(var i=0;i<size*size;i++){d[i*4]*=cfg.relaxation;d[i*4+1]*=cfg.relaxation;}
-    var gmx=size*ms.x,gmy=size*ms.y,maxD=size*cfg.mouse;
-    for(var ii=0;ii<size;ii++){
-      for(var jj=0;jj<size;jj++){
-        var dSq=Math.pow(gmx-ii,2)+Math.pow(gmy-jj,2);
-        if(dSq<maxD*maxD){
-          var idx=4*(ii+size*jj),pw=Math.min(maxD/Math.sqrt(dSq),10);
-          d[idx]+=cfg.strength*100*ms.vX*pw;
-          d[idx+1]-=cfg.strength*100*ms.vY*pw;
-        }
-      }
-    }
-    dataTex.needsUpdate=true;
-    renderer.render(scene,camera);
-  })();
-})();
 </script>
+
 
 </body>
 </html>
