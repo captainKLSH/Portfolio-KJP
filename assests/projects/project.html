@@ -50,6 +50,92 @@
         <section>
             <div class="bg" style="filter: drop-shadow(0px 0px 10px rgb(255, 214, 80)) opacity(50%);"
                 data-bg="../images/gkhh.png"></div>
+            <div class="ip"><img style="width: 50%;" class="ip1" src="../images/dem.gif" alt="1"></div>
+            <div class="ph1">
+                <h1>🧠 3D Brain Tissue Segmentation — DINOv2 + U-Net</h1>
+                <hr>
+            </div>
+            <div class="pp">
+                <p><strong>Key Technologies:</strong> Python, PyTorch, DINOv2, MLOps, Fastapi,Neuroglancer,
+                    DVC (Data Version Control)
+                <ul class="psum">
+                    <li>Engineered a 6-phase volumetric preprocessing pipeline to chunk a <strong>(100, 1024, 1024)</strong> brain tissue
+                        microscopy volume
+                        into GPU-compatible <strong>[1, 7, 64, 64]</strong> tensors, enabling large-scale 3D biological image processing
+                    </li>
+                    <li>Designed a dimensional transposition strategy to reframe Z-depth as a batch dimension, solving the fundamental
+                        incompatibility between 3D microscopy data and 2D foundational vision models like <em>DINOv2</em></li>
+                    <li>Built a DinoAdapter module that bilinearly upsamples and converts grayscale microscopy patches to pseudo-RGB [7, 3,
+                        224, 224], enabling zero-shot feature extraction from <strong>Meta's frozen ViT</strong> without any encoder
+                        fine-tuning
+                    </li>
+                    <li>Implemented a <strong>custom U-Net decoder</strong> that reshapes DINOv2 patch token embeddings <em>[7, 256,
+                            768]</em> back into spatial maps
+                        and progressively upsamples via three <em>ConvTranspose2d blocks </em> to produce high-resolution segmentation
+                        logits</li>
+                    <li>Designed a biologically-aware evaluation framework using IoU and Dice metrics — diagnosing <strong>82% Precision
+                        </strong>, <strong>40.5% Recall</strong>, <strong>54.01% F1 Score</strong>
+                    </li>
+                    </ul>
+                <a href="https://github.com/captainKLSH/NeuronWireTracing"
+                    class="github-btn" target="_blank" rel="noopener">
+                    <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
+                        style="vertical-align: middle; margin-right: 0.5em;">
+                        <path
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                    </svg>
+                    GitHub
+                </a>
+                </p>
+            </div>
+        </section>
+        <section>
+            <div class="bg" style="filter: drop-shadow(0px 0px 10px rgb(182, 80, 255)) opacity(50%);"
+                data-bg="../images/kz.png"></div>
+            <div class="ip"><img class="ip1" src="../images/nor.png" alt="1"></div>
+            <div class="ph1">
+                <h1>Kidney Tumor CNN Classifier</h1>
+                <hr>
+            </div>
+            <div class="pp">
+                <p>
+                <ul class="psum">
+                    <li>
+                        Architected a modular <strong>5-stage MLOps pipeline</strong> — data ingestion, base model preparation, training, evaluation, and
+                        inference — using <strong>VGG16 transfer learning</strong> on kidney CT scans for binary tumor classification
+                    </li>
+                    <li>
+                        Implemented full experiment reproducibility using <strong>MLflow </strong>for metric and artifact tracking, <strong>DVC</strong> for dataset
+                        versioning, and YAML-driven declarative configs eliminating all hardcoded parameters
+                    </li>
+                    <li>
+                        Containerized the end-to-end pipeline with Docker, pushing images to <strong> AWS ECR</strong> and orchestrating inference on EC2
+                        instances via a <strong>fully automated CI/CD workflow</strong> using GitHub Actions
+                    </li>
+                    <li>
+                        Integrated TensorBoard for real-time training visualization and model checkpointing, enabling rapid diagnosis of
+                        overfitting and learning rate issues during transfer learning fine-tuning
+                    </li>
+                    <li>
+                        Deployed a Flask-based web inference interface with a <strong>REST API</strong> endpoint accepting base64-encoded CT scan images and
+                        returning predicted class and confidence score in production
+                    </li>
+                </ul>
+                <a href="https://github.com/captainKLSH/KidneyTumorCNNclassifier"
+                    class="github-btn" target="_blank" rel="noopener">
+                    <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"
+                        style="vertical-align: middle; margin-right: 0.5em;">
+                        <path
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.68 7.68 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                    </svg>
+                    GitHub
+                </a>
+                </p>
+            </div>
+        </section>
+        <section>
+            <div class="bg" style="filter: drop-shadow(0px 0px 10px rgb(255, 214, 80)) opacity(50%);"
+                data-bg="../images/gkhh.png"></div>
             <div class="ip"><img style="width: 42%;" class="ip1" src="../images/cest.png" alt="1"></div>
             <div class="ph1">
                 <h1>End-to-End MLOps Pipeline for Chest Cancer Detection</h1>

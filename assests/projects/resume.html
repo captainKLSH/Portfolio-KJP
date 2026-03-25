@@ -600,6 +600,29 @@
   <div class="sec-label">Research &amp; Projects</div>
   <h2>What I've <em>Engineered</em></h2>
   <div class="projects-grid">
+    <div class="proj-card reveal" style="--card-accent: #ff385c">
+      <div class="proj-date">DEC 2025 – FEB 2026</div>
+      <div class="proj-title">3D Brain Tissue Segmentation — DINOv2 + U-Net</div>
+      <ul class="proj-bullets">
+        <li>Architected a <strong>Hybrid Vision Pipeline</strong>: Engineered a State-of-the-Art 3D segmentation model using PyTorch, integrating Meta's frozen <strong>DINOv2 Vision Transformer</strong> with a custom <strong>Spatial U-Net decoder</strong> to map neural boundaries in Electron Microscopy scans.</li>
+        <li>Resolved Dimensionality Bottlenecks: Designed a custom tensor-transposition algorithm to seamlessly feed massive 3D volumetric biological data into 2D vision models, preventing channel-clash errors and maximizing GPU batch-processing efficiency.</li>
+        <li><strong>Overcame Severe Class Imbalance</strong>: Stabilized training on datasets consisting of 95% empty space by implementing pure logit outputs with BCEWithLogitsLoss, successfully eliminating vanishing gradients and boosting structural precision to 82%.</li>
+        <li>Engineered High-Speed Evaluation: Replaced memory-heavy grading libraries with a custom NumPy evaluation engine capable of instantly <strong>computing precision, recall, Dice (F1), and IoU scores on 100M+ pixel datasets</strong>.</li>
+        <li>Deployed Real-Time 3D Web Application: Wrapped the PyTorch inference engine in a <strong> FastAPI backend</strong> and integrated <strong>Google's Neuroglancer</strong>, allowing users to upload raw medical scans and interactively visualize the <strong>AI's 3D predictions</strong> in the browser.</li>
+      </ul>
+    </div>
+
+    <div class="proj-card reveal" style="--card-accent: #ff385c">
+      <div class="proj-date">NOV 2025 – JAN 2026</div>
+      <div class="proj-title">Kidney Tumor CNN Classifier</div>
+      <ul class="proj-bullets">
+        <li>Architected a modular <strong>5-stage MLOps pipeline</strong> — data ingestion, base model preparation, training, evaluation, and inference — using <strong>VGG16 transfer learning</strong> on kidney CT scans for binary tumor classification</li>
+        <li>Implemented full experiment reproducibility using MLflow for metric and artifact tracking, DVC for dataset versioning, and YAML-driven declarative configs eliminating all hardcoded parameters</li>
+        <li>Containerized the <strong>end-to-end pipeline with Docker</strong>, pushing images to <strong>AWS ECR</strong> and orchestrating inference on <strong>EC2 instances</strong> via a fully automated <strong>CI/CD workflow</strong> using GitHub Actions</li>
+        <li>Integrated TensorBoard for real-time training visualization and model checkpointing, enabling rapid diagnosis of overfitting and learning rate issues during transfer learning fine-tuning</li>
+        <li>Deployed a <strong>Flask-based web inference interface</strong> with a <strong>REST API</strong> endpoint accepting <strong>base64-encoded CT scan images</strong> and returning predicted class and confidence score in production</li>
+        </ul>
+    </div>
 
     <div class="proj-card reveal" style="--card-accent: #ff385c">
       <div class="proj-date">JULY 2025 – OCT 2025</div>
